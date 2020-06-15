@@ -1,0 +1,16 @@
+<div class="widget-heading">
+  <p>See something you want to note down for your next holiday? Create a list (as many as you like) and start adding
+    your bookmarks! </p>
+</div>
+
+<div class="widget-body">
+  <p *ngIf="!bookmarkList || bookmarkList.length == 0" class="no-list">You have not created a list yet.</p>
+  <ul *ngIf="!!bookmarkList && bookmarkList.length > 0">
+    <li *ngFor="let item of bookmarkList" [class.selected]="isSelected(item)">
+      <a [routerLink]="[ '/bookmark-detail', item.id ]">{{item.title}}</a>
+    </li>
+  </ul>
+  <div class="create-list mt-3">
+    <a (click)='createNewBookmarkList()'>+ Create a new list</a>
+  </div>
+</div>

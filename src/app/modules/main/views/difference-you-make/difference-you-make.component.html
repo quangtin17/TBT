@@ -1,0 +1,14 @@
+<div class="infor-group difference-you-make"
+  *ngIf="differenceYouMake.value && differenceYouMake.value.length > 0 && differenceYouMake.type === 'difference_you_make'">
+  <h3 class="title" *ngIf="differenceYouMake.title">
+    {{differenceYouMake.title}}
+  </h3>
+  <div class="difference-you-make-inner" *ngFor="let item of differenceYouMake.value" [ngSwitch]="item.type">
+    <div *ngSwitchCase="'free_text'" [innerHTML]="item.value"></div>
+    <k-video-youtube *ngSwitchCase="'embedded_video'" [youtubeVideo]="item.video"></k-video-youtube>
+    <div class="single-image" *ngSwitchCase="'gallery'">
+      <img *ngIf="item.gallery && item.gallery.length === 1" class="w-100" [src]="item.gallery[0].img_url"
+        alt="item.gallery[0].alt">
+    </div>
+  </div>
+</div>

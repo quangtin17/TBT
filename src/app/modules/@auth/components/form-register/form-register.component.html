@@ -1,0 +1,70 @@
+<div class="webform">
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-message text-center">
+          <div class="logo">
+            <a href="#" class="logo-tbt"><img src="images/logo-tbt.svg" alt=""></a>
+          </div>
+          <p>Sign up to read, save the stuff you love to your bookmarks, and chat with a community of like-minded travellers
+          </p>
+        </div>
+        <div class="social-login">
+          <a class="social-login-fb d-block" href="#"><i class="fab fa-facebook-square"></i> Continue with Facebook</a>
+          <a class="social-login-tw d-block" href="#"><i class="fab fa-twitter"></i> Continue with Twitter</a>
+          <a class="social-login-gg d-block" href="#"><i class="fab fa-google"></i> Continue with Google</a>
+        </div>
+        <div class="divine">
+          <span>OR</span>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6 col-item">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col-md-6 col-item">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Enter your email">
+        </div>
+
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="news-subscribed">
+          <label for="news-subscribed" class="form-check-label">Newsletter subscription</label>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="terms">
+          <label for="terms" class="form-check-label">Accept <a target="_blank" href="/terms" rel="noreferrer">Terms and Conditions</a> and <a target="_blank" href="/privacy" rel="noreferrer">Privacy Policy</a></label>
+        </div>
+        <div class="form-group pt-10">
+          <button class="btn btn-default btn-larger">Sign up</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="join-our-company">
+          <h3>Join our community!</h3>
+          <div class="img text-center">
+              <img width="180" src="../../../../../assets/images/obw-sign-up.jpg" alt="OBW Signup Image">
+          </div>
+          <div class="community-member">
+              <p>As a community member, you can: </p>
+              <ul>
+                  <li>
+                      <div class="icon"><i class="fas fa-book-heart"></i></div>Follow stories: get updates and be informed of their impact
+                  </li>
+                  <li>
+                      <div class="icon"><i class="fas fa-comments-alt"></i></div>Join the conversation: <i class="fas fa-heart"></i> a story, comment and share ideas
+                  </li>
+                  <li>
+                      <div class="icon"><i class="fas fa-hand-heart"></i></div>Take action more easily and eventually track your personal impact
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

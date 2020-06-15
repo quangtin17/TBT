@@ -1,0 +1,35 @@
+<div class="dialog-container center-dialog">
+  <div class="dialog-header">
+    <h2>Share on</h2>
+    <button class="btn-close" (click)="closeDialog({})">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body">
+    <button class="btn-share icon-facebook" shareButton="facebook" aria-label="Facebook"
+      (opened)="shareSocialTracking($event)">
+      <i class="fab fa-facebook-square icon-fb"></i>
+      <span class="name">Facebook</span>
+    </button>
+    <button class="btn-share icon-twitter" shareButton="twitter" [description]="currentTitle" aria-label="Twitter"
+      (opened)="shareSocialTracking($event)">
+      <i class="fab fa-twitter"></i>
+      <span class="name">Twitter</span>
+    </button>
+    <button class="btn-share icon-mail" aria-label="Mail" (click)="[openShareDialog(), shareMailTracking($event)]">
+      <i class="fas fa-envelope"></i>
+      <span class="name">Email</span>
+    </button>
+    <button class="btn-share icon-pinterest" shareButton="pinterest" aria-label="Pinterest"
+      (opened)="shareSocialTracking($event)">
+      <i class="fab fa-pinterest-p"></i>
+      <span class="name">Pinterest</span>
+    </button>
+    <button class="btn-share icon-whatsapp" shareButton="whatsapp" [description]="currentTitle" aria-label="Whatsapp"
+      (opened)="shareSocialTracking($event)">
+      <i class="fab fa-whatsapp"></i>
+      <span class="name">Whatsapp</span>
+    </button>
+  </div>
+
+</div>

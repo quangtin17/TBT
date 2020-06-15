@@ -1,0 +1,50 @@
+.widget-nav {
+    padding: 25px 0;
+    .widget-heading {
+       h3 {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 600;
+            margin: 0;
+       }
+    }
+    .widget-body {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                border-bottom: solid 1px var(--gray-3);
+                padding: 5px 0;
+                a {
+                    display: block;
+                    position: relative;
+                    font-size: 16px;
+                    line-height: 23px;
+                    color: var(--gray-5);
+                    padding: 10px 30px 10px 0;
+                    &:after {
+                        content: '\f054';
+                        font-family: var(--awesome);
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                        color: var(--color-link);
+                        font-weight: 300;
+                    }
+                }
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+        .create-list {
+            a {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 23px;
+            }
+        }
+    }
+}

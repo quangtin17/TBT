@@ -1,0 +1,49 @@
+<!-- <div class="community-forum">
+  <div class="container">
+    <div class="community-forum-title text-center">
+      <h3>Community Forums</h3>
+      <p>Start chatting - ask a question or share your experiences </p>
+    </div>
+    <div class="topic">
+      <div class="topic-title">
+        <h3>Topics</h3>
+      </div>
+      <div class="topic-wrapper" *ngIf="htmlTopicData && htmlTopicData.length > 0; else noTopic">
+        <div class="topic-item" *ngFor="let topic of htmlTopicData">
+          <div class="topic-item-desc">
+            <p>
+              <a href="{{ environmentBaseUrl }}/topic/{{ topic.tid }}" rel="noreferrer" target="_blank">{{ topic.titleRaw }}</a>
+            </p>
+          </div>
+          <div class="topic-item-action">
+            <ul>
+              <li>
+                <i class="fal fa-comment"></i> {{ topic.postcount }} Replies
+              </li>
+              <li><i class="fal fa-thumbs-up"></i> {{ topic.votes }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ng-template #noTopic>
+        <div class="topic-item mt-20">
+          <p class="mb-0 text-center">
+            There are no ongoing discussions.
+            <br />
+            How about starting one?
+          </p>
+        </div>
+      </ng-template>
+
+      <div class="create-topic text-center">
+        <a href="{{ environmentBaseUrl }}/compose?cid=2&country_name={{countryName}}&country_code={{countryCode}}"
+          class="btn btn-dark btn-rounded medium" rel="noreferrer" target="_blank">CREATE
+          A NEW
+          TOPIC</a>
+      </div>
+      <div class="link-to-forum">
+        <a href="{{ environmentBaseUrl }}" rel="noreferrer" target="_blank">Visit the Forum <i class="fal fa-long-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div> -->

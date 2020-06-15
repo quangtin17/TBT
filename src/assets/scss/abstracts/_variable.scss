@@ -1,0 +1,34 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --dark: #2c2c3c;
+  --gray: #d8d8d8;
+  --gray-1: #9b9b9b;
+  --gray-2: #f7f7fb;
+  --gray-3: #dddddd;
+  --gray-4: #9194a1;
+  --gray-5: #444444;
+  --gray-6: #5f5d70;
+  --gray-7: #f3f3f3;
+  --green: #9a9e3a;
+  --yellow: #ffd426;
+  --primary: #d24f1d;
+  --color-link: #d34f1d;
+  --btn-dark: #382c14;
+  --btn-dark-hover: #1e180a;
+  --btn-light: #ffffff;
+  --btn-default: #d34f1d;
+  --btn-default-hover: #bd471a;
+  --btn-green: #9a9e3a;
+  --btn-green-hover: #838731;
+  --place-holder: #b3b3b3;
+  --title: #1a1b3a;
+  --form-color: #444444;
+  --place-holder-color: #9b9b9b;
+  --source-sans-pro: 'Source Sans Pro', Georgia, sans-serif;
+  --awesome: 'Font Awesome 5 Pro';
+  --font-size-default: 14px;
+}
+
+$btn-dark: var(--btn-dark);
+$btn-light: var(--btn-light);

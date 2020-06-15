@@ -1,0 +1,11 @@
+@import 'top-header';
+@import 'bottom-header';
+
+.header {
+    .top-header {
+        @extend %top-header;
+    }
+    .bottom-header {
+        @extend %bottom-header;
+    }
+}

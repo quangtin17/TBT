@@ -1,0 +1,51 @@
+<div class="page-heading small-size bookmark-heading">
+  <div class="container">
+    <div class="row align-items-center item">
+      <div class="col-12 text-left">
+        <h1>Saved list</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="direct-link back-link">
+  <div class="container">
+    <div class="wrap">
+      <a nbTooltip="Back To My Bookmark" [routerLink]="[ '/bookmark-list' ]" class="back-btn"><i
+          class="fal fa-arrow-left"></i></a>
+      <h2 class="text-center" *ngIf="!!bookmarkItem">{{bookmarkItem.title}}</h2>
+      <div class="action-group">
+        <div class="edit-group">
+          <button nbTooltip="Edit List" class="edit-btn" (click)="clickEditBookmarkToggle()" *ngIf="!!bookmarkItem"><i
+              class="fas fa-pen"></i></button>
+          <div class="bookmark-edit-toggle" [ngClass]="{'open': openBookmarkEditPanel}" *ngIf="!!bookmarkItem">
+            <ul>
+              <li>
+                <button nbTooltip="Rename List" class="edit-btn" (click)="clickRenameBtn()">Rename
+                  list</button>
+              </li>
+              <li>
+                <button nbTooltip="Delete List" class="edit-btn" (click)="clickDeleteBtn()">Delete list</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="question-group">
+          <button nbTooltip="More Info" class="question-btn" (click)="onOpenNotifyFeaturesDialog()">
+            <i class="fas fa-question"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="collection-container">
+  <div class="explore-by-country pb-30">
+    <div class=" container">
+      <div class="list-view grid-style bookmark-list">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

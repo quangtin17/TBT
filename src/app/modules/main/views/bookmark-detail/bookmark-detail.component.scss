@@ -1,0 +1,84 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/paginaton';
+
+@include nb-install-component() {
+  ::ng-deep {
+    @include list-view;
+    @include pager;
+
+    nb-radio {
+      .radio-indicator {
+        border: solid 1px #d4dde5;
+        width: 16px;
+        height: 16px;
+      }
+
+      input:hover:not(:disabled)+.radio-indicator {
+        border-color: #d4dde5;
+      }
+
+      input:checked+.radio-indicator {
+        border: solid 1px #d4dde5;
+
+        &:before {
+          background-color: #9a9e3a;
+          width: 8px;
+          border: none;
+          padding: 0;
+          height: 8px;
+        }
+      }
+
+      label {
+        color: #4a4a4a;
+        font-size: 16px;
+      }
+    }
+
+    .action-group {
+      display: flex;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 5;
+      position: absolute;
+
+      .edit-group {
+        position: static;
+        transform: initial;
+      }
+
+      .question-btn {
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background: none;
+        color: #707070;
+      }
+    }
+
+    .collection-container {
+      .list-view.grid-style {
+        .description {
+          @media (min-width: 768px) {
+            margin: 16px 0 0;
+
+            h3 {
+              text-align: left;
+              font-weight: 600;
+
+              a {
+                font-size: 18px;
+                line-height: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

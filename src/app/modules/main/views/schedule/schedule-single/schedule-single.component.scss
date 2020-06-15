@@ -1,0 +1,26 @@
+@import '../../../../@theme/styles/themes.scss';
+@import '../../../../../../assets/scss/custom/custom.scss';
+
+
+@include nb-install-component() {
+  ::ng-deep {
+    .item {
+      position: relative;
+
+      .item-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .tags {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+      }
+    }
+  }
+}

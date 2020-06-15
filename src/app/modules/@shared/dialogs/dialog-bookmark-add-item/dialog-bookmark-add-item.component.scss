@@ -1,0 +1,20 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/form';
+@import '../../../../../assets/scss/components/dialog';
+@import '../../../../../assets/scss/components/widget';
+
+:host {
+  display: block;
+  max-width: 90vw;
+}
+@include nb-install-component() {
+  @include dialog;
+  ::ng-deep {
+    .dialog-container {
+      width: 300px;
+    }
+  }
+}

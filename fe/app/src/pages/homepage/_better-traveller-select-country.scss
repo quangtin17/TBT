@@ -1,0 +1,49 @@
+.better-traveller-select-country {
+    padding: 30px 0;
+    position: relative;
+
+    .bg {
+        position: absolute;
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    &:after {
+        background: linear-gradient(180deg, #EB873E 0%, #D24F1D 100%);
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .content {
+        position: relative;
+        z-index: 3;
+        color: var(--white);
+        .tbt-logo {
+            img {
+                width: 250px;
+            }
+        }
+        h3 {
+            margin: 0;
+            @include fontSize(null, null, 35px, null);
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0;
+            @include fontSize(null, null, 16px, null);
+            line-height: 24px;
+            font-weight: 600;
+        }
+    }
+}

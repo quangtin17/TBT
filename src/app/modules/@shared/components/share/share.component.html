@@ -1,0 +1,22 @@
+<button class="btn btn-share mobile" aria-label="share mobile" (click)="clickShareMobileBtn()" *ngIf="!!show">
+  <i class="far fa-share-alt"></i>
+</button>
+<div class="share-wrapper" *ngIf="!!show">
+  <span>Share</span>
+  <button shareButton="facebook" [url]="currentHref" aria-label="Facebook" (opened)="shareSocialTracking($event)">
+    <i class="fab fa-facebook-f"></i>
+  </button>
+  <button shareButton="twitter" [url]="currentHref" [description]="currentTitle" aria-label="Twitter"
+    (opened)="shareSocialTracking($event)">
+    <i class="fab fa-twitter"></i>
+  </button>
+  <button aria-label="Mail" (click)="[openShareDialog(), shareMailTracking($event)]">
+    <i class="fas fa-envelope"></i>
+  </button>
+  <button shareButton="pinterest" url="{{currentHref}}" aria-label="Pinterest" (opened)="shareSocialTracking($event)">
+    <i class="fab fa-pinterest-p"></i></button>
+  <button shareButton="whatsapp" url="{{currentHref}}" [description]="currentTitle" aria-label="Whatsapp"
+    (opened)="shareSocialTracking($event)">
+    <i class="fab fa-whatsapp"></i>
+  </button>
+</div>

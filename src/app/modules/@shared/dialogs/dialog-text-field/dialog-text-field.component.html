@@ -1,0 +1,33 @@
+<div class="dialog-container center-dialog">
+  <div class="dialog-header container">
+    <h4>Create a list</h4>
+    <p>Create as many lists as you'd like – to plan for your next adventure!</p>
+    <button class="btn-close" (click)="closeDialog({})">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body container">
+    <form class="form share-form" [formGroup]="shareForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="list_name" style="display: none"></label>
+        <input type="text" formControlName="list_name" nbInput fullWidth placeholder="Enter list name"
+          class="form-control" aria-label="" [ngClass]="{'error': submitted && f.list_name.errors}">
+        <div *ngIf="f.list_name.errors" class="error-messages">
+          <span class="form-text error" *ngIf="submitted && f.list_name.errors.required">Please enter a name to create
+            your
+            list</span>
+          <!-- <span class="form-text error" *ngIf="submitted && f.list_name.errors.pattern">The name is not valid</span> -->
+          <span class="form-text error" *ngIf="submitted && f.list_name.errors.isExisted">This name already exists,
+            please try
+            again</span>
+
+          <span class="form-text error" *ngIf="f.list_name.errors.maxlength">Please enter a valid name (max
+            length 40 characters)</span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="dialog-footer container">
+    <button class="btn btn-submit" (click)="submitForm()">{{btnText}}</button>
+  </div>
+</div>

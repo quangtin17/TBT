@@ -1,0 +1,127 @@
+@mixin filter {
+  .search-result {
+    padding: 24px 0 0;
+
+    @media (max-width: 767px) {
+      .filter-widget {
+        display: none;
+      }
+    }
+  }
+
+  .filter-option-result {
+    p {
+      margin: 0;
+      color: #69696f;
+      line-height: 16px;
+      font-size: 16px;
+
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  .filter-result {
+    padding-top: 30px;
+
+    @media (max-width: 767px) {
+      border-top: 10px;
+    }
+  }
+
+  .filter-option {
+    padding-bottom: 20px;
+
+    @media (max-width: 767px) {
+      padding-bottom: 0;
+    }
+
+    .webform {
+      padding: 24px 0;
+      border-top: solid 1px #ddd;
+      border-bottom: solid 1px #ddd;
+
+      .result-count {
+        display: none;
+
+        @media (max-width: 767px) {
+          font-size: 12px;
+          margin: 0 0 10px;
+          display: block;
+        }
+      }
+
+      .form-action {
+        display: none;
+
+        @media (max-width: 767px) {
+          display: inline-block;
+          // max-width: 90px;
+          max-width: 100%;
+          width: 100%;
+          height: 35px;
+          border-radius: 4px;
+          border: solid 1px #979797;
+          background-color: #ffffff;
+          width: 120px;
+          color: #4a4a4a;
+          font-size: 12px;
+        }
+
+        @media (max-width: 390px) {
+          width: 100%;
+          max-width: 100%;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .filter-widget {
+    @include responsive(mobile) {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    &.show-mobile {
+
+      // @include responsive(mobile) {
+      //   display: block;
+      // }
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+
+    .filter-item {
+      padding-bottom: 16px;
+
+      h3 {
+        margin: 0 0 24px;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 1px;
+        color: #1a1b3a;
+        text-transform: uppercase;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+
+        label {
+          color: #444444;
+
+          &:before {
+            color: #cccccc;
+          }
+        }
+      }
+    }
+  }
+}

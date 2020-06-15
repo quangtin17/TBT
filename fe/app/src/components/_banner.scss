@@ -1,0 +1,10 @@
+.banner {
+    .single-photo {
+        img {
+            width: 100%;
+        }
+        @include responsive(mobile){
+            margin: 0 -20px;
+        }
+    }
+}

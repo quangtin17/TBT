@@ -1,0 +1,19 @@
+<div class=" pt-20 pb-10" *ngIf="aboutHost && aboutHost.host && aboutHost.host.name">
+  <h3 class="title" *ngIf="aboutHost.title">{{aboutHost.title}}</h3>
+  <div class="the-host"
+    [ngClass]="{'mb-0 mb-0': !aboutHost.host.img_url && ExperienceAboutHost && ExperienceAboutHost.type === 'experiences'}">
+    <div class="avatar" *ngIf="aboutHost.host.img_url">
+      <img *ngIf="aboutHost.host.img_url" [src]="aboutHost.host.img_url" [alt]="aboutHost.host.name" />
+    </div>
+    <div class="desc" *ngIf="ExperienceAboutHost && ExperienceAboutHost.type !== 'experiences'">
+      <p *ngIf="aboutHost.host.name">
+        <b>{{ aboutHost.host.name }}</b>
+      </p>
+      <p *ngIf="aboutHost.host.bio">
+        <small>{{ aboutHost.host.bio }}</small>
+      </p>
+    </div>
+  </div>
+  <div *ngIf="aboutHost.description" [innerHTML]="aboutHost.description">
+  </div>
+</div>

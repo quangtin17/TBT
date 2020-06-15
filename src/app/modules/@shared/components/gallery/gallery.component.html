@@ -1,0 +1,9 @@
+<div class="gallery-container">
+  <ngx-gallery [options]="galleryOptions" [images]="galleryImages" (change)='eventChange($event)'
+    ></ngx-gallery>
+  <div class="caption-container">
+    <div class="image-caption" *ngFor="let item of galleryImages; let index = index" [ngClass]="{'active': index === activeIndex}">
+      <p *ngIf="item.description">{{item.description}}</p>
+    </div>
+  </div>
+</div>

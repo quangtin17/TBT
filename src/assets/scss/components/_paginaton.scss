@@ -1,0 +1,51 @@
+@mixin pager {
+  .pagination {
+    padding: 30px 0 0;
+
+    @media (min-width: 768px) {
+      padding: 50px 0 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      display: block;
+      width: 100%;
+
+      li {
+        padding: 0 10px;
+        display: inline-block;
+
+        &.disabled {
+          a {
+            color: gray;
+            pointer-events: none;
+            cursor: default;
+          }
+        }
+
+        &.active {
+          a {
+            color: #d34f1d;
+            pointer-events: none;
+            cursor: default;
+          }
+        }
+
+        a {
+          color: #382c14;
+          cursor: pointer;
+        }
+
+        span,
+        a {
+          font-size: 14px;
+          line-height: 18px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

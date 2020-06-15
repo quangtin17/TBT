@@ -1,0 +1,49 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/form';
+
+:host {
+  display: block;
+  max-width: 90vw;
+  width: 390px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@include nb-install-component() {
+  .dialog-container {
+    background-color: white;
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    max-width: 420px;
+    margin-bottom: 20px;
+
+    @media (max-width: 500px) {
+      max-width: 90vw;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    background: transparent;
+    outline: none;
+
+    i {
+      font-weight: 300;
+      color: #d34f1d;
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+$small-desktop: 960px;
+$large-desktop: 1200px;
+$mobile: 640px;
+$small-mobile: 480px;
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
+
+@mixin fontSize($largeDesktopSize, $smallDesktopSize, $largeMobileSize, $smallMobileSize) {
+    @media only screen and (min-width: $large-desktop) { 
+        font-size: $largeDesktopSize;
+    }
+    @media only screen and (max-width: $small-desktop) { 
+        font-size: $smallDesktopSize;
+    }
+    @media only screen and (max-width: $small-mobile) {
+        font-size: $smallMobileSize;
+    }
+    @media only screen and (max-width: $mobile) { 
+        font-size: $largeMobileSize;
+    }
+}
+
+@mixin responsive($media) {
+    @if $media == largeDesktop {
+        @media only screen and (min-width: $large-desktop) { @content }
+    }
+    @if $media == smallDesktop {
+        @media only screen and (max-width: $small-desktop) { @content; }
+    }
+    @if $media == handhelds {
+        @media only screen and (max-width: $handheld) { @content; }
+    }
+
+    @if $media == mobile {
+        @media only screen and (max-width: $mobile) { @content; }
+    }
+}
+
+
+@mixin clearfix {
+    &:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+}

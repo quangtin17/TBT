@@ -1,0 +1,50 @@
+<div class="subscribe pink-bg pt-30 pb-30">
+  <div class="container">
+    <div *ngIf="!showSuccess; else successForm">
+      <div class="block-title text-center">
+        <h3>Get inspired</h3>
+        <p>Curious as to how to be a better traveller? <br>
+          Sign up for ideas for your next travel adventure!</p>
+      </div>
+      <div class="webform pt-20">
+        <form class="form subscribe-form" [formGroup]="subscribeForm" (ngSubmit)="submitForm()">
+          <div class="form-group">
+            <input type="text" formControlName="email" nbInput fullWidth aria-label="Email Input"
+              class="form-control text-center" placeholder="Enter your email"
+              [ngClass]="{'error': submitted && f.email.errors}">
+            <div *ngIf="submitted && f.email.errors" class="error-messages">
+              <span class="form-text error" *ngIf="f.email.errors.required">Please enter an email address</span>
+              <span class="form-text error" *ngIf="f.email.errors.pattern">Please enter valid
+                email</span>
+            </div>
+            <div class="error-messages" *ngIf="showEmailSubmittedMessage !== null">
+              <span class="form-text error"
+                *ngIf="showEmailSubmittedMessage !== null">{{showEmailSubmittedMessage}}</span>
+
+            </div>
+          </div>
+          <div class="form-group form-check mb-15 text-center">
+            <input type="checkbox" id="newsletter" formControlName="sign_up_for_obw_newsletter">
+            <label for="newsletter">Sign up also for Our Better World's newsletter <br>for more stories of good from Asia</label>
+          </div>
+          <div class="form-group">
+            <button type="submit" aria-label="Button Subscribe" class="btn btn-default form-action">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <ng-template #successForm>
+      <div class="form-success text-center">
+        <h5>Thank you! You are all set for a regular dose of travel inspiration!
+        </h5>
+        <p>
+          If you've also opted to join the Our Better World mailing list,
+          <br>
+          thank you, and get ready to be inspired by our other stories of good from Asia.
+        </p>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

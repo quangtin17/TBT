@@ -1,0 +1,93 @@
+@import "../../../@theme/styles/themes.scss";
+@import "../../../../../assets/scss/custom/custom.scss";
+
+:host-context(.thumbnail-inner) .bookmark-require-login-group a {
+  display: inline;
+  color: #d34f1d;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bookmark-require-login-group {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .wrapper {
+    border-radius: 5px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    z-index: 2;
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 1px;
+    font-size: 14px;
+    right: 1px;
+    width: 20px;
+    height: 20px;
+    // background: #d34f1d;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    padding: 0;
+    color: rgb(80, 95, 121);
+
+    i {
+      color: rgb(80, 95, 121);
+      font-size: 14px;
+    }
+
+    @media (max-width: 991px) {
+
+      &:focus,
+      &:active {
+        background-color: rgba(9, 30, 66, 0.08);
+      }
+    }
+
+    @media (min-width: 992px) {
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: rgba(9, 30, 66, 0.08);
+      }
+    }
+  }
+
+  p {
+    line-height: 18px;
+    color: #4a4a4a;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  a {
+    display: inline;
+    color: #d34f1d;
+    cursor: pointer;
+  }
+}

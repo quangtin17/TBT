@@ -1,0 +1,28 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+:host {
+  width: 100%;
+}
+
+@include nb-install-component() {
+  ::ng-deep {
+    a {
+      word-break: break-all;
+    }
+
+    .map-link {
+      position: relative;
+
+      &:before {
+        content: '\f054';
+        font-family: 'Font Awesome 5 Pro';
+        position: absolute;
+        display: block;
+        right: -14px;
+        top: 6px;
+        font-size: 10px;
+      }
+    }
+  }
+}

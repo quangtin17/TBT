@@ -1,0 +1,31 @@
+.footer-nav {
+    @include responsive(mobile){
+        margin: 0 -20px;
+        border-bottom: 1px solid #E1E0EA;
+    }
+    .nav-widget {
+       
+        .widget-head {
+            margin: 0;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+
+            @include responsive(mobile){
+                padding: 20px;
+                border-top: 1px solid #E1E0EA;
+                position: relative;
+                cursor: pointer;
+                &:before {
+                    content: '\f078';
+                    font-family: var(--awesome);
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translate(0, -50%);
+                }
+            }
+        }
+    }
+}

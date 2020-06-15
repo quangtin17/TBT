@@ -1,0 +1,19 @@
+<div class="pt-20 pb-15" *ngIf="info && info.list && info.list.length > 0">
+  <h3 class="title" *ngIf="info.title">{{info.title}}</h3>
+  <div class="infor-list">
+    <div class="row">
+      <div class="col-12" *ngFor="let infoItem of info.list">
+        <div class="item" [ngClass]="{'item-link': infoItem.icon === 'far fa-map'}">
+          <div class="icon" *ngIf="infoItem.icon">
+            <i class="{{ infoItem.icon }}"></i>
+          </div>
+          <p *ngIf="!infoItem.link" [innerHTML]="infoItem.value"></p>
+          <!-- <div *ngIf="infoItem.link" [innerHTML]="infoItem.link">
+            </div> -->
+          <a class="d-inline-block" [ngClass]="{'map-link': infoItem.icon === 'far fa-map'}" *ngIf="infoItem.link"
+            href="{{ infoItem.link }}" target="_blank" [innerHTML]="infoItem.value" rel="noreferrer"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/community-forum';
+
+@include nb-install-component() {
+  ::ng-deep {
+    .community-forum {
+      .create-topic {
+        padding: 20px 0;
+      }
+    }
+
+  }
+}

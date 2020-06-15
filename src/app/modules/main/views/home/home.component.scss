@@ -1,0 +1,298 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/travel-inspiration';
+
+// /deep/ .cdk-global-scrollblock {
+//   position: static !important;
+// }
+
+@include nb-install-component() {
+  // .better-traveller-select-country
+  @include list-view;
+  @include travel-inspiration;
+
+  .better-traveller-select-country {
+    padding: 30px 0;
+    position: relative;
+
+    @media (min-width: 768px) {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+
+      .content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      nb-select {
+        max-width: 250px;
+      }
+    }
+
+    .bg {
+      position: absolute;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    &:after {
+      background: linear-gradient(180deg, #eb873e 0%, #d24f1d 100%);
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 3;
+      color: #fff;
+
+      .tbt-logo {
+        img {
+          width: 250px;
+        }
+      }
+
+      h3 {
+        margin: 0;
+        @include fontSize(null, null, 35px, null);
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        @include fontSize(null, null, 16px, null);
+        line-height: 24px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  ::ng-deep {
+    ng-select {
+      color: #444;
+      background-color: #fff;
+      position: relative;
+      text-transform: unset;
+      border-radius: 44px;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 10px 25px;
+      font-weight: 600;
+      text-align: center;
+      outline: none;
+      -webkit-transition: all 0.1s ease;
+      transition: all 0.1s ease;
+      margin: 0 auto;
+      max-width: 80vw;
+
+      &::before {
+        content: '\f078';
+        font-family: 'Font Awesome 5 Pro';
+        color: #000;
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        font-size: 20px;
+        font-weight: 300;
+      }
+
+      .ng-placeholder {
+        width: 100%;
+        color: #444;
+      }
+
+      .ng-select-container {
+        .ng-clear-wrapper {
+          display: none;
+        }
+
+        &.ng-has-value {
+          .ng-placeholder {
+            display: none;
+          }
+        }
+
+        .ng-arrow-wrapper {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          left: 0;
+          height: 100%;
+        }
+      }
+
+      .ng-value-container {
+        .ng-input {
+          display: none;
+        }
+      }
+
+      .ng-dropdown-panel {
+        left: 0;
+        top: 100%;
+        background-color: #fff;
+        max-height: 20rem;
+        border: 2px solid #d24f1d;
+
+        .ng-option {
+          padding: 0 21px;
+          font-size: 14px;
+          font-weight: 400;
+          height: 38px;
+          line-height: 38px;
+
+          &:hover {
+            background-color: #d24f1d;
+            color: #fff;
+          }
+        }
+      }
+
+      &.ng-select-opened {
+        &:before {
+          content: '\f077';
+        }
+      }
+
+      @media (min-width: 768px) {
+        max-width: 250px;
+      }
+    }
+
+    .our-collection {
+      @media (min-width: 768px) {
+        .list-view {
+          .item {
+            height: 100%;
+            margin-bottom: 0 !important;
+          }
+        }
+
+        .row {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .item {
+      position: relative;
+
+      .item-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .category-type,
+      .noted-country-time {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+      }
+    }
+
+    nb-card {
+      nb-card-body {
+        nb-option {
+          text-align: center;
+        }
+      }
+    }
+
+    .better-traveller-select-country {
+      .content {
+        h3 {
+          color: #fff;
+          font-weight: 800;
+          font-size: 18px;
+          margin: 30px 0 15px;
+
+          strong {
+            font-weight: 800;
+          }
+        }
+
+        p {
+          margin: 0 0 15px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    // Custom nb-select
+    nb-select {
+      max-width: 80vw;
+      margin: 0 auto;
+      cursor: pointer;
+
+      button.btn-primary {
+        color: #444 !important;
+        background-color: #fff !important;
+        position: relative;
+        text-transform: unset;
+        border-radius: 44px;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 10px 25px;
+        font-weight: 600;
+        text-align: center;
+        outline: none;
+        transition: all 0.1s ease;
+
+        &:hover,
+        &:focus:active,
+        &:active {
+          color: #9b9b9b;
+          background-color: #fff;
+        }
+
+        &:after {
+          display: none; // hide default arrow
+        }
+
+        &.opened {
+          border-radius: 44px;
+        }
+
+        &:before {
+          content: '\f078';
+          font-family: 'Font Awesome 5 Pro';
+          color: #000;
+          position: absolute;
+          top: 50%;
+          right: 25px;
+          transform: translate(0, -50%);
+          font-size: 20px;
+          font-weight: 300;
+        }
+
+        &.opened {
+          &:before {
+            content: '\f077';
+          }
+        }
+      }
+    }
+  }
+}

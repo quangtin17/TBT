@@ -1,0 +1,104 @@
+<div class="experience-container" *ngIf="htmlExperienceData">
+  <k-banner *ngIf="htmlExperienceData.banner" [bannerData]="htmlExperienceData.banner" htmlExperienceData></k-banner>
+
+  <div class="experience post-content-wrapper">
+    <div class="container">
+      <div class="post-content">
+        <div class="post-header">
+          <div class="post-content-tags">
+            <ul>
+              <li *ngIf="htmlExperienceData.country">
+                <!-- <a href="">{{ htmlExperienceData.country }}</a> -->
+                <a *ngIf="!htmlExperienceData.redirect_the_search_page"
+                  [routerLink]="['/all-countries', htmlExperienceData.country]">{{
+                      htmlExperienceData.country
+                    }}</a>
+                <a *ngIf="htmlExperienceData.redirect_the_search_page && htmlExperienceData.type === 'experiences'"
+                  [routerLink]="['/search']"
+                  [queryParams]="{type: 'experiences', country: htmlExperienceData.country_id}">{{
+                      htmlExperienceData.country
+                    }}</a>
+                <a *ngIf="htmlExperienceData.redirect_the_search_page && htmlExperienceData.type !== 'experiences'"
+                  [routerLink]="['/search']" [queryParams]="{type: 'stories', country: htmlExperienceData.country_id}">{{
+                      htmlExperienceData.country
+                    }}</a>
+              </li>
+              <li *ngIf="htmlExperienceData.sub_country && htmlExperienceData.sub_country !== 'Singapore'">
+                <span>{{ htmlExperienceData.sub_country }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="post-content-title">
+            <h1 *ngIf="htmlExperienceData.title">
+              {{ htmlExperienceData.title }}
+            </h1>
+            <p *ngIf="htmlExperienceData.organisation">
+              <a href="javascript:void(0)">{{ htmlExperienceData.organisation }}</a>
+            </p>
+          </div>
+          <div class="bookmark">
+            <div class="bookmark-inside">
+              <k-bookmark-btn [item]="spotlightData" [btnType]="'inside'"></k-bookmark-btn>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-content-description" *ngIf="htmlExperienceData.body">
+          <div class="post-item body-item" *ngFor="let item of htmlExperienceData.body" [ngSwitch]="item.type">
+            <div *ngSwitchCase="'free_text'" [innerHTML]="item.value"></div>
+            <k-video-youtube *ngSwitchCase="'embedded_video'" [youtubeVideo]="item.video"></k-video-youtube>
+            <k-difference-you-make *ngSwitchCase="'difference_you_make'" [differenceYouMake]="item">
+            </k-difference-you-make>
+          </div>
+        </div>
+        <div class="infor-wrapper">
+          <div class="row">
+            <div class="col-md-12"
+              *ngIf="htmlExperienceData.amenities && htmlExperienceData.amenities.list && htmlExperienceData.amenities.list.length > 0">
+              <div class="infor-group line-top-mb">
+                <k-story-amenities [amenities]="htmlExperienceData.amenities"></k-story-amenities>
+              </div>
+            </div>
+            <div class="col-md-12" *ngIf="htmlExperienceData.info">
+              <div class="infor-group line-top">
+                <k-story-info [info]="htmlExperienceData.info"></k-story-info>
+              </div>
+            </div>
+            <div class="col-md-12"
+              *ngIf="htmlExperienceData.about_host && htmlExperienceData.about_host.host && htmlExperienceData.about_host.host.name">
+              <div class="infor-group about-the-host line-top">
+                <k-story-host [aboutHost]="htmlExperienceData.about_host" [ExperienceAboutHost]="htmlExperienceData">
+                </k-story-host>
+              </div>
+            </div>
+            <div class="col-md-12" *ngIf="htmlExperienceData.traveller_notes">
+              <div class="infor-group line-top">
+                <k-story-travellver-note [travellverNote]="htmlExperienceData.traveller_notes">
+                </k-story-travellver-note>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <k-contributors [listContributors]="htmlExperienceData.list_contributors"></k-contributors>
+        <k-related-topic *ngIf="
+        htmlExperienceData.list_tags &&
+        htmlExperienceData.list_tags.length > 0
+          " [list]="htmlExperienceData.list_tags" [type]="'experience'">
+        </k-related-topic>
+      </div>
+    </div>
+  </div>
+  <k-story-forum [storyId]="htmlExperienceData.id"></k-story-forum>
+  <k-related-stories-custom
+    *ngIf="htmlExperienceData.related_stories && htmlExperienceData.related_stories.list_stories"
+    [relatedStoriesInput]="htmlExperienceData.related_stories" [relatedStoriesType]="htmlExperienceData">
+  </k-related-stories-custom>
+</div>
+
+<div class="float-container">
+  <div class="action-container">
+    <k-bookmark-btn [item]="spotlightData" [btnType]="'button'"></k-bookmark-btn>
+  </div>
+
+</div>

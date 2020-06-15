@@ -1,0 +1,91 @@
+<div class="item" [ngClass]="{'spotlight': isSpotlight}">
+  <a class="item-link" aria-label="experience" *ngIf="item.type === 'experiences' && !item.redirect_to_journey"
+    [routerLink]="['/experience' , item.alias]" target="{{target}}">
+  </a>
+  <a class="item-link" aria-label="story-1" *ngIf="item.type !== 'experiences' && item.redirect_to_journey"
+    [routerLink]="['/story', 'journey', item.alias,'info']" target="{{target}}">
+  </a>
+  <a class="item-link" aria-label="story-2" *ngIf="item.type === 'experiences' && item.redirect_to_journey"
+    [routerLink]="['/story', 'journey', item.alias,'info']" target="{{target}}">
+  </a>
+  <a class="item-link" aria-label="story-3" *ngIf="item.type !== 'experiences' && !item.redirect_to_journey"
+    [routerLink]="['/story', item.type, item.alias]" target="{{target}}">
+  </a>
+  <div class="thumbnail">
+    <div class="thumbnail-inner">
+      <img class="img-mobile" *ngIf="item.img_url_mobile" [src]="item.img_url_mobile" [alt]="item.alt" />
+      <img class="img-desktop" *ngIf="item.img_url" [src]="item.img_url" [alt]="item.alt" />
+      <img class="img-noimg" *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg"
+        [alt]="item.alt" />
+      <k-bookmark-btn [item]="item" [btnType]="'home'"></k-bookmark-btn>
+      <!-- <button class="bookmark" [ngClass]="{ bookmarked: item.bookmarked }" (click)="bookmark(item)">
+        <i class="far fa-bookmark"></i>
+      </button> -->
+    </div>
+  </div>
+  <div class="description">
+    <div class="tags expriences-tags" *ngIf="item.type === 'experiences'">
+      <ul *ngIf="!isShowExperienceLink">
+        <li *ngIf="item.country && isShowCountry">
+          <a *ngIf="item.redirect_the_search_page" [routerLink]="['/search']"
+            [queryParams]="{ type: 'experiences', country: item.country_id }">{{ item.country }}</a>
+          <a *ngIf="!item.redirect_the_search_page"
+            [routerLink]="['/all-countries', item.country]">{{ item.country }}</a>
+        </li>
+        <li *ngIf="item.sub_country && (item.sub_country !== 'Singapore'  ||  !isShowCountry )"
+          [ngClass]="{'category-name': !isShowCountry}">
+          <span>{{ item.sub_country }}</span>
+        </li>
+      </ul>
+      <ul *ngIf="isShowExperienceLink">
+        <li>
+          <a [routerLink]="['/search']" [queryParams]="{ type: 'experiences'}" target="{{ target }}">
+            {{ item.type_title }} </a>
+        </li>
+      </ul>
+    </div>
+    <div class="category" *ngIf="item.type && item.type !== 'experiences'">
+      <a [routerLink]="['/search']" [queryParams]=" {type: 'stories', story_type: item.type}">{{item.type_title}}</a>
+    </div>
+    <h3 class="align-title">
+      <a *ngIf="item.type === 'experiences'" [routerLink]="['/experience' , item.alias]"
+        target="{{ target }}">{{item.title}}</a>
+      <a *ngIf="item.type !== 'experiences'" [routerLink]="['/story', item.type, item.alias]"
+        target="{{ target }}">{{item.title}}</a>
+    </h3>
+    <div class="short-description short-desc" *ngIf="isShowShortDesc && item.short_description && !isMobile">
+      <p *ngIf="item.short_description">{{item.short_description}}</p>
+    </div>
+
+    <div class="noted-country-time">
+      <div class="tags" *ngIf="item.type !== 'experiences' && isShowCountry">
+        <ul>
+          <li *ngIf="item.country">
+            <a *ngIf="item.redirect_the_search_page" [routerLink]="['/search']"
+              [queryParams]="{ type: 'stories', country: item.country_id }">{{ item.country }}</a>
+            <a *ngIf="!item.redirect_the_search_page"
+              [routerLink]="['/all-countries', item.country]">{{ item.country }}</a>
+          </li>
+          <li *ngIf="item.sub_country && item.sub_country !== 'Singapore'">
+            <span>{{ item.sub_country }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tags organisation" *ngIf="item.type && item.type === 'experiences' && !!item.organisation">
+        <ul>
+          <li><span>{{ item.organisation }}</span></li>
+        </ul>
+      </div>
+      <div class="tags social-enterprise"
+        *ngIf="item.type && item.type !== 'experiences' && item.name_of_social_enterprise && isShowSocialEnterprise">
+        <ul>
+          <li><span>{{ item.name_of_social_enterprise }}</span></li>
+        </ul>
+      </div>
+      <div class="days-time" *ngIf="item.published_date && item.type !=='experiences' && isShowPublish">
+        <span>/</span>
+        <span>{{item.published_date}}</span>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,13 @@
+<div class="collection-container" *ngIf="htmlData">
+  <div class="back-btn hide-desktop">
+    <a [routerLink]="['/travel-inspiration']"><i class="fal fa-long-arrow-left"></i> Back to Travel Inspiration</a>
+  </div>
+  <k-banner *ngIf="htmlData.banner" [bannerData]="htmlData.banner"></k-banner>
+  <div class="explore-by-country pt-30 pb-30">
+    <div class=" container">
+      <div class="list-view grid-style">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

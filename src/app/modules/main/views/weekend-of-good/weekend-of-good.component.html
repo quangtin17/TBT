@@ -1,0 +1,103 @@
+<div class="weeked-container" *ngIf="htmlData">
+  <k-banner *ngIf="htmlData.banner" [bannerData]="htmlData.banner"></k-banner>
+
+  <div class="weekend-of-good post-content-wrapper">
+    <!-- <div class="bookmark">
+      <div class="container">
+        <div class="bookmark-inside">
+          <k-bookmark-btn
+            [item]="spotlightData"
+            [btnType]="'inside'"
+          ></k-bookmark-btn>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <div class="bookmark-inside">
+        <k-bookmark-btn [item]="spotlightData" [btnType]="'inside'">
+        </k-bookmark-btn>
+      </div>
+      <div class="post-content">
+        <div class="post-content-type" *ngIf="htmlData.story.type">
+          <a [routerLink]="['/search']" [queryParams]="{ type: 'stories', story_type: htmlData.story.type }">
+            {{ htmlData.story.type_title }}
+          </a>
+        </div>
+
+        <div class="post-content-title mb-10" *ngIf="htmlData.story.title">
+          <h1>{{ htmlData.story.title }}</h1>
+        </div>
+        <div class="post-content-tags mb-20">
+          <ul>
+            <li *ngIf="htmlData.story.country">
+              <a *ngIf="!htmlData.story.redirect_the_search_page"
+                [routerLink]="['/all-countries', htmlData.story.country]">{{ htmlData.story.country }}</a>
+              <a *ngIf="
+                  htmlData.story.redirect_the_search_page &&
+                  htmlData.story.type === 'experiences'
+                " [routerLink]="['/search']" [queryParams]="{
+                  type: 'experiences',
+                  country: htmlData.story.country_id
+                }">{{ htmlData.story.country }}</a>
+              <a *ngIf="
+                  htmlData.story.redirect_the_search_page &&
+                  htmlData.story.type !== 'experiences'
+                " [routerLink]="['/search']" [queryParams]="{
+                  type: 'stories',
+                  country: htmlData.story.country_id
+                }">{{ htmlData.story.country }}</a>
+            </li>
+            <li *ngIf="
+                htmlData.story.sub_country &&
+                htmlData.story.sub_country !== 'Singapore'
+              ">
+              <span>{{ htmlData.story.sub_country }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="post-content-description" *ngIf="htmlData.story.description"
+          [innerHTML]="htmlData.story.description"></div>
+
+        <div class="timeline-container" *ngIf="htmlData.story.timeline && htmlData.story.timeline.length > 0">
+          <div class="timeline" *ngFor="let timeline of htmlData.story.timeline" [ngSwitch]="timeline.type" [ngClass]="
+              timeline.type === 'free_text'
+                ? 'post-content-description'
+                : timeline.type === 'tips_list'
+                ? 'mb-25'
+                : ''
+            ">
+            <k-video-youtube *ngSwitchCase="'embedded_video'" [youtubeVideo]="timeline.video"></k-video-youtube>
+            <div class="post-content-tips" *ngSwitchCase="'tips_list'">
+              <h2>{{ timeline.title }}</h2>
+              <k-tips-list *ngIf="timeline.tips.length > 0" [tipsList]="timeline.tips"></k-tips-list>
+            </div>
+            <k-schedule *ngSwitchCase="'multiple_schedule'" [timeline]="timeline"></k-schedule>
+            <div *ngSwitchCase="'free_text'" [innerHtml]="timeline.value"></div>
+            <k-difference-you-make *ngSwitchCase="'difference_you_make'" [differenceYouMake]="timeline">
+            </k-difference-you-make>
+          </div>
+        </div>
+        <p>Let's travel...in pictures. Tap on our <a (click)="onScrollToTarget()" class="btn-scroll-top">photo
+            gallery</a> to see what your
+          next
+          holiday could look
+          like.
+        </p>
+        <k-contributors [listContributors]="htmlData.story.list_contributors">
+        </k-contributors>
+        <k-related-topic *ngIf="htmlData.list_tags && htmlData.list_tags.length > 0" [list]="htmlData.list_tags">
+        </k-related-topic>
+      </div>
+    </div>
+  </div>
+  <k-story-forum [storyId]="htmlData.story.id"></k-story-forum>
+  <k-related-stories *ngIf="htmlData.related_stories" [relatedStoriesInput]="htmlData.related_stories"
+    [relatedStoriesType]="htmlData">
+  </k-related-stories>
+  <div class="float-container">
+    <div class="action-container">
+      <k-bookmark-btn [item]="spotlightData" [btnType]="'button'"></k-bookmark-btn>
+    </div>
+  </div>
+</div>

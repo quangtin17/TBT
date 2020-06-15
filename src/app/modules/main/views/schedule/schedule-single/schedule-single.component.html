@@ -1,0 +1,20 @@
+<div class="items">
+  <div class="timeline-item-desc">
+    <p class="time" *ngIf="event.icon_description">
+      <i class="{{ event.icon }}"></i>{{ event.icon_description }}
+    </p>
+    <div *ngIf="event.description" [innerHTML]="event.description"></div>
+  </div>
+  <div class="list-view list-style" *ngIf="event.related_stories">
+    <div class="row" *ngIf="event.related_stories">
+      <div class="col-12">
+
+        <div class="item mt-0">
+          <k-spotlight-item [item]="event.related_stories" [target]="'_blank'" [isShowExperienceLink]="true"
+            [isSpotlight]="false" [isShowCountry]="false" [isShowShortDesc]="false" [isShowPublish]="false" [isShowSocialEnterprise]="true">
+          </k-spotlight-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

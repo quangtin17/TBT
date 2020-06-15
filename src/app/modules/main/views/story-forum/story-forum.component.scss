@@ -1,0 +1,25 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/post-content';
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/community-forum-comment';
+
+
+@include nb-install-component() {
+  ::ng-deep {
+    .community-comment-user {
+      img {
+        width: 46px;
+        height: 46px;
+        object-fit: cover;
+      }
+    }
+
+    .community-comment-item {
+      .explore-more {
+        padding: 20px 0;
+      }
+    }
+  }
+}

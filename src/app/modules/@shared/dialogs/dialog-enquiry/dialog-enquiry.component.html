@@ -1,0 +1,112 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2>Enquire now</h2>
+    <button class="btn-close" (click)="closeDialog({})">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body mb-3">
+    <div class="description" [innerHTML]="intro_text">
+
+    </div>
+    <div class="webform">
+      <h5>Your Details</h5>
+      <form class="form enquiry-form" [formGroup]="enquiryForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="">First name*</label>
+          <input type="text" formControlName="first_name" nbInput fullWidth placeholder="First name"
+            class="form-control" aria-label="First name" [ngClass]="{'error': submitted && f.first_name.errors}">
+          <div *ngIf="submitted && f.first_name.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.first_name.errors.required">Please enter your first name</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Last name*</label>
+          <input type="text" formControlName="last_name" nbInput fullWidth placeholder="Last name" class="form-control"
+            aria-label="Last name" [ngClass]="{'error': submitted && f.last_name.errors}">
+          <div *ngIf="submitted && f.last_name.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.last_name.errors.required">Please enter your last name</span>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="">Email*</label>
+          <input type="email" formControlName="email" nbInput fullWidth placeholder="Email" class="form-control"
+            aria-label="Email" [ngClass]="{'error': submitted && f.email.errors}">
+          <div *ngIf="submitted && f.email.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.email.errors.required">Please enter an email address</span>
+            <span class="form-text error" *ngIf="f.email.errors.pattern">Please enter valid
+              email</span>
+          </div>
+          <!-- <span class="form-text error" *ngIf="f.email.errors && !submitted">Please enter valid
+            email !</span> -->
+
+        </div>
+        <div class="form-group">
+          <label for="">Mobile Phone (including country code)*</label>
+          <input type="tel" formControlName="handphone" nbInput fullWidth
+            placeholder="Mobile Phone (including country code)" class="form-control" aria-label="Handphone"
+            [ngClass]="{'error': submitted && f.handphone.errors}">
+          <div *ngIf="submitted && f.handphone.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.handphone.errors.required">Please enter your mobile number</span>
+            <span class="form-text error" *ngIf="f.handphone.errors.pattern">Please enter valid
+              phone number</span>
+            <span class="form-text error" *ngIf="f.handphone.errors.maxlength">Please enter valid phone number (max
+              length 15 characters)</span>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="listCountries && listCountries.length > 0">
+          <label for="">Country*</label>
+          <!-- <nb-select formControlName="country" placeholder="Country of Residence"
+            (selectedChange)="onCountrySelected($event)" [ngClass]="{'error': submitted && f.country.errors}">
+            <nb-option *ngFor="let item of listCountries" [value]="item.id">{{ item.name }}
+            </nb-option>
+          </nb-select> -->
+          <ng-select formControlName="country" [items]="listCountries" [searchFn]="customSearchFunc"
+            placeholder="Country of Residence" bindLabel="name" bindValue="id"
+            [ngClass]="{'error': submitted && f.country.errors}">
+            <ng-option *ngFor="let country of listCountries" [value]="country.id">{{country.name}}</ng-option>
+          </ng-select>
+          <div *ngIf="submitted && f.country.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.country.errors.required">Please select a country</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Message*</label>
+          <textarea formControlName="message" rows="4" nbInput fullWidth placeholder="Message" class="form-area"
+            aria-label="Message" [ngClass]="{'error': submitted && f.message.errors}">
+          </textarea>
+          <div *ngIf="submitted && f.message.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.message.errors.required">Please enter your message</span>
+          </div>
+        </div>
+        <div class="form-group form-check ">
+          <input type="checkbox" id="enquiry-privacy" formControlName="i_have_read_and_agree_to_the_privacy_policy"
+            required>
+          <label for="enquiry-privacy">I have read and agree to the <a href="./privacy-policy" rel="noreferrer"
+              target="_blank">Privacy
+              Policy</a></label>
+          <div *ngIf="submitted && f.i_have_read_and_agree_to_the_privacy_policy.errors" class="error-messages">
+            <span class="form-text error" *ngIf="f.i_have_read_and_agree_to_the_privacy_policy.errors.required">Please
+              read and agree to the Privacy Policy</span>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" id="enquiry-newsletter" formControlName="sign_up_for_newsletter">
+          <label for="enquiry-newsletter">Sign me up for The Better Traveller newsletter</label>
+        </div>
+        <div class="form-group form-recaptcha">
+          <re-captcha formControlName="recaptchaReactive" (resolved)="resolved($event)" required></re-captcha>
+          <div class="error-messages" *ngIf="submitted && f.recaptchaReactive.errors">
+            <span class="form-text error">Please verify the captcha</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="dialog-footer">
+    <p>Upon submission, an account will be created for you using your given information, if you do not have one. </p>
+    <button class="btn btn-submit" (click)="submitForm()">Send my enquiry</button>
+  </div>
+</div>

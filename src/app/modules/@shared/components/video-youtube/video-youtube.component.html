@@ -1,0 +1,18 @@
+<div class="video-youtube">
+  <div
+    class="overlay"
+    [hidden]="playedVideo"
+    [style.backgroundImage]="'url(' + youtubeVideo.img_url_mobile + ')'"
+    (click)="clickOverlay()"
+    *ngIf="youtubeVideo.img_url_mobile"
+  >
+  <i class="fas fa-play"></i>
+  </div>
+
+  <youtube-player
+    [videoId]="youtubeVideo.video_id"
+    (ready)="savePlayer($event)"
+    (change)="onStateChange($event)"
+  >
+  </youtube-player>
+</div>

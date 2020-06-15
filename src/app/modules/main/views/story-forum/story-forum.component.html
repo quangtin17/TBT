@@ -1,0 +1,73 @@
+<!-- <div class="community-comment">
+  <div class="container">
+    <div class="community-comment-title text-center">
+      <h3>Community Forum</h3>
+      <p>Start chatting - ask a question or share your experiences </p>
+    </div>
+    <div *ngIf="htmlForumData && htmlForumData.created; else noTopic">
+      <div class="community-comment-wrapper" *ngIf="htmlForumData.posts.length > 0; else noComment">
+        <div class="community-comment-item" *ngFor="let story of htmlForumData.posts">
+          <div class="community-comment-user">
+            <div class="avatar" *ngIf="story.user.picture; else avatarText">
+              <img [src]="story.user.picture" [alt]="story.user.username" />
+            </div>
+            <ng-template #avatarText>
+              <img src="../../../../../assets/images/user.svg" alt="avatar" />
+            </ng-template>
+
+            <div class="username">{{ story.user.username }}</div>
+          </div>
+          <div class="community-comment-desc" *ngIf="story.content" [innerHTML]="story.content"></div>
+          <div class="community-comment-action">
+            <ul>
+              <li><i class="fal fa-thumbs-up"></i>{{ story.upvotes }}</li>
+              <li>
+                <i class="fal fa-comment"></i>{{ story.replies.count }} Replies
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div *ngIf="htmlForumData.posts">
+          <div class="explore-more text-center" *ngFor="let story of htmlForumData.posts">
+            <a href="{{ environmentBaseUrl }}/topic/{{ story.tid }}" class="btn btn-dark btn-rounded medium"
+              target="_blank" rel="noreferrer">EXPLORE MORE</a>
+          </div>
+        </div>
+        <div class="link-to-forum text-center">
+          <a href="#">Visit the Forum <i class="fal fa-long-arrow-right"></i></a>
+        </div>
+      </div>
+      <ng-template #noComment>
+        <div class="community-comment-item">
+          <p class="mb-0 text-center">
+            No comment yet
+          </p>
+          <div class="explore-more text-center">
+            <a href="{{ environmentBaseUrl }}/topic/{{ htmlForumData.tid }}" class="btn btn-dark btn-rounded medium"
+              target="_blank" rel="noreferrer">Start the discussion here</a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <ng-template #noTopic>
+      <div class="community-comment-item">
+        <p class="mb-0 text-center">
+          There are no ongoing discussions.
+          <br />
+          How about starting one?
+        </p>
+        <div class="explore-more text-center">
+          <a href="{{ environmentBaseUrl }}/compose?cid=2&story_id={{storyId}}&story_url={{getWindowHref}}"
+            class="btn btn-dark btn-rounded medium" target="_blank" rel="noreferrer">Create a new
+            topic</a>
+        </div>
+      </div>
+      <div class="explore-more-topic text-center">
+        <a [href]="environmentBaseUrl" target="_blank" rel="noreferrer">Explore more topics in the forum <i
+            class="fal fa-long-arrow-right"></i></a>
+      </div>
+    </ng-template>
+  </div>
+</div> -->

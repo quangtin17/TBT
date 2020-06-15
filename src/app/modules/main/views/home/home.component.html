@@ -1,0 +1,382 @@
+<div class="home-container" *ngIf="htmlData">
+  <div class="better-traveller-select-country" *ngIf="htmlData.selectors">
+    <!-- <div class="bg" *ngIf="htmlData.selectors.banner && htmlData.selectors.banner.banner_format === 'photo'"
+      [style.backgroundImage]="'url('+ htmlData.selectors.banner.gallery[0].img_url +')'"> -->
+    <div class="bg" *ngIf="htmlData.selectors.banner && htmlData.selectors.banner.banner_format === 'photo'"
+      [style.backgroundImage]="'url('+ bannerImageSrc +')'">
+    </div>
+    <div class="container">
+      <div class="content text-center">
+        <div class="logo pb-5">
+          <img src="../../../../../assets/images/logo-obw-white.svg" alt="" />
+        </div>
+        <div class="tbt-logo pb-5">
+          <img src="../../../../../assets/images/logo-tbt.svg" alt="" />
+        </div>
+        <div *ngIf="htmlData.selectors.banner.title" [innerHTML]="htmlData.selectors.banner.title"></div>
+        <div class="webform pt-20" *ngIf="htmlData.selectors.list_countries">
+          <form action="">
+            <div class="form-group form-select">
+              <!-- <nb-select #nebulaSelect [placeholder]="htmlData.selectors.placeholder"
+                (selectedChange)="onCountrySelected($event)">
+                <nb-option *ngFor="let item of htmlData.selectors.list_countries" [value]="item.alias">{{ item.name }}
+                </nb-option>
+              </nb-select> -->
+
+              <ng-select placeholder="{{htmlData.selectors.placeholder}}" (change)="onCountrySelected($event)"
+                [items]="htmlData.selectors.list_countries" bindLabel="name">
+                <ng-option *ngFor="let item of htmlData.selectors.list_countries" [value]="item.alias">{{ item.name }}
+                </ng-option>
+              </ng-select>
+            </div>
+          </form>
+
+          <!-- <k-dropdown-select-country [listCountries]="htmlData.selectors.list_countries">
+          </k-dropdown-select-country> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="our-collection pink-bg pt-30 pb-30" *ngIf="htmlData.collections">
+    <div class="container">
+      <div class="block-title">
+        <h3>{{ htmlData.collections.title }}</h3>
+        <p>{{ htmlData.collections.description }}</p>
+      </div>
+      <div class="list-view grid-style animation popup" *ngIf="
+          htmlData.collections.list_collections &&
+          htmlData.collections.list_collections.length > 0
+        ">
+        <div class="row">
+          <div class="col-6 col-md-3" *ngFor="let item of htmlData.collections.list_collections">
+            <div class="item">
+              <div class="thumbnail">
+                <a [routerLink]="['/travel-inspiration', item.alias]">
+                  <k-img-lazyload device="mobile" class="img-mobile" *ngIf="item.img_url_mobile"
+                    [src]="item.img_url_mobile" [alt]="item.alt"></k-img-lazyload>
+                  <k-img-lazyload device="desktop" class="img-desktop" *ngIf="item.img_url" [src]="item.img_url"
+                    [alt]="item.alt"></k-img-lazyload>
+                  <img class="img-noimg" *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg"
+                    [alt]="item.alt" />
+                  <span class="collection-items">
+                    <i class="far fa-book"></i> {{ item.count }}
+                  </span>
+                </a>
+              </div>
+              <div class="description" *ngIf="item.type_title">
+                <h3>
+                  <a [routerLink]="['/travel-inspiration', item.alias]">{{
+                    item.type_title
+                  }}</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group pt-10 text-center">
+          <a [routerLink]="['/travel-inspiration']" class="btn btn-default btn-rounded medium">See all</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAVEL INSPIRATION -->
+  <div class="travel-inspiration pt-30 pb-30" *ngIf="htmlData.inspirations">
+    <div class="container">
+      <div class="block-title">
+        <h3>{{ htmlData.inspirations.title }}</h3>
+      </div>
+      <div class="list-view list-style" *ngIf="htmlData.inspirations.list_inspirations &&
+          htmlData.inspirations.list_inspirations.length > 0">
+        <div class="row">
+          <!-- Sportlight -->
+          <div class="col-lg-6">
+            <div class="item spotlight">
+              <a class="item-link" *ngIf="spotlightTravelInspirations.type === 'experiences'"
+                [routerLink]="['/experience' , spotlightTravelInspirations.alias]" aria-label="experience">
+              </a>
+              <a class="item-link"
+                *ngIf="spotlightTravelInspirations.type !== 'experiences' && spotlightTravelInspirations.type !== 'spotlight' && spotlightTravelInspirations.redirect_to_journey"
+                [routerLink]="['/story', spotlightTravelInspirations.type, spotlightTravelInspirations.alias,'/info']"
+                aria-label="info">
+              </a>
+              <a class="item-link"
+                *ngIf="spotlightTravelInspirations.type !== 'experiences' && spotlightTravelInspirations.type !== 'spotlight' && !spotlightTravelInspirations.redirect_to_journey"
+                [routerLink]="['/story', spotlightTravelInspirations.type, spotlightTravelInspirations.alias]"
+                aria-label="info-2"></a>
+              <a class="item-link" *ngIf="spotlightTravelInspirations.type === 'spotlight'"
+                [href]="spotlightTravelInspirations.alias" [target]="_blank" aria-label="spotlight"></a>
+              <div class="thumbnail">
+                <div class="thumbnail-inner">
+                  <a [routerLink]="['/story', spotlightTravelInspirations.type, spotlightTravelInspirations.alias]"
+                    *ngIf="spotlightTravelInspirations.img_url_mobile && spotlightTravelInspirations.type !== 'experiences'"
+                    aria-label="info-mobile-1">
+                    <k-img-lazyload device="mobile" class="img-mobile"
+                      [src]="spotlightTravelInspirations.img_url_mobile" [alt]="spotlightTravelInspirations.alt">
+                    </k-img-lazyload>
+                  </a>
+                  <a [routerLink]="['/story', spotlightTravelInspirations.type, spotlightTravelInspirations.alias]"
+                    *ngIf="spotlightTravelInspirations.img_url && spotlightTravelInspirations.type !== 'experiences'"
+                    aria-label="info-mobile-2">
+                    <k-img-lazyload device="desktop" class="img-desktop" [src]="spotlightTravelInspirations.img_url"
+                      [alt]="spotlightTravelInspirations.alt"></k-img-lazyload>
+                  </a>
+
+                  <a [routerLink]="['/story', spotlightTravelInspirations.type, spotlightTravelInspirations.alias]"
+                    *ngIf="!spotlightTravelInspirations.img_url && !spotlightTravelInspirations.img_url_mobile && spotlightTravelInspirations.type !== 'experiences'"
+                    aria-label="info-mobile-3">
+
+                    <img class="img-noimg" src="/assets/images/noimage.jpg" [alt]="spotlightTravelInspirations.alt" />
+                  </a>
+                  <!--If type is  experience-->
+                  <a [routerLink]="['/experience' , spotlightTravelInspirations.alias]"
+                    *ngIf="spotlightTravelInspirations.img_url_mobile && spotlightTravelInspirations.type === 'experiences'">
+                    <k-img-lazyload device="mobile" class="img-mobile"
+                      [src]="spotlightTravelInspirations.img_url_mobile" [alt]="spotlightTravelInspirations.alt">
+                    </k-img-lazyload>
+                  </a>
+
+                  <a [routerLink]="['/experience' , spotlightTravelInspirations.alias]"
+                    *ngIf="spotlightTravelInspirations.img_url && spotlightTravelInspirations.type === 'experiences'">
+                    <k-img-lazyload device="desktop" class="img-desktop" [src]="spotlightTravelInspirations.img_url"
+                      [alt]="spotlightTravelInspirations.alt"></k-img-lazyload>
+                  </a>
+
+                  <a [routerLink]="['/experience' , spotlightTravelInspirations.alias]"
+                    *ngIf="!spotlightTravelInspirations.img_url && !spotlightTravelInspirations.img_url_mobile && spotlightTravelInspirations.type === 'experiences'">
+                    <img class="img-noimg" src="/assets/images/noimage.jpg" [alt]="spotlightTravelInspirations.alt" />
+                  </a>
+                  <k-bookmark-btn *ngIf="spotlightTravelInspirations.type !== 'spotlight'" [item]='spotlightTravelInspirations' [btnType]="'home'"></k-bookmark-btn>
+                  <!-- <button class="bookmark" [ngClass]="{ bookmarked: spotlightTravelInspirations.bookmarked }"
+                    (click)="bookmark(spotlightTravelInspirations)">
+                    <i class="far fa-bookmark"></i>
+                  </button> -->
+                </div>
+              </div>
+              <div class="description">
+                <div class="category-type" *ngIf="spotlightTravelInspirations.type">
+                  <a *ngIf="spotlightTravelInspirations.type === 'experiences'" [routerLink]="['/search']"
+                    [queryParams]=" {type: 'experiences'}">{{spotlightTravelInspirations.type_title}}</a>
+                  <a *ngIf="spotlightTravelInspirations.type !== 'experiences'" [routerLink]="['/search']"
+                    [queryParams]=" {type: 'stories', story_type: spotlightTravelInspirations.type}">{{spotlightTravelInspirations.type_title}}</a>
+
+                </div>
+                <h3>
+                  {{spotlightTravelInspirations.title}}
+                </h3>
+                <div class="short-desc" *ngIf="spotlightTravelInspirations.short_description && !isMobile"
+                  [innerHTML]="spotlightTravelInspirations.short_description">
+                </div>
+                <div class="noted-country-time">
+                  <div class="tags">
+                    <ul>
+                      <li *ngIf="spotlightTravelInspirations.country">
+                        <a *ngIf="spotlightTravelInspirations.redirect_the_search_page && spotlightTravelInspirations.type !== 'experiences' "
+                          [routerLink]="['/search']"
+                          [queryParams]="{ type: 'stories', country: spotlightTravelInspirations.country_id }">{{ spotlightTravelInspirations.country }}</a>
+                        <a *ngIf="spotlightTravelInspirations.redirect_the_search_page && spotlightTravelInspirations.type === 'experiences' "
+                          [routerLink]="['/search']"
+                          [queryParams]="{ type: 'experiences', country: spotlightTravelInspirations.country_id }">{{ spotlightTravelInspirations.country }}</a>
+                        <a *ngIf="!spotlightTravelInspirations.redirect_the_search_page"
+                          [routerLink]="['/all-countries', spotlightTravelInspirations.country]">{{ spotlightTravelInspirations.country }}</a>
+                      </li>
+                      <li
+                        *ngIf="spotlightTravelInspirations.sub_country && spotlightTravelInspirations.sub_country !== 'Singapore'">
+                        <span>{{spotlightTravelInspirations.sub_country}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="days-time" *ngIf="spotlightTravelInspirations.published_date">
+                    <span>/</span>
+                    <span>{{spotlightTravelInspirations.published_date}}</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Orther -->
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-12" *ngFor="let item of htmlData.inspirations.list_inspirations;
+              let first = first">
+                <div class="item" *ngIf="!first">
+                  <a class="item-link" *ngIf="item.type === 'experiences'" [routerLink]="['/experience' , item.alias]"
+                    aria-label="experience">
+                  </a>
+                  <a class="item-link" *ngIf="item.type !== 'experiences' && item.type !== 'spotlight' && item.redirect_to_journey"
+                    [routerLink]="['/story', item.type, item.alias,'/info']" aria-label="info">
+                  </a>
+                  <a class="item-link" *ngIf="item.type !== 'experiences' && item.type !== 'spotlight' && !item.redirect_to_journey"
+                    [routerLink]="['/story', item.type, item.alias]" aria-label="story-1"></a>
+                  <a class="item-link" *ngIf="item.type === 'spotlight'" [href]="item.alias" [target]="_blank"
+                    aria-label="spotlight"></a>
+                  <div class="thumbnail">
+                    <div class="thumbnail-inner">
+                      <a [routerLink]="['/story', item.type, item.alias]"
+                        *ngIf="item.img_url_mobile && item.type !== 'experiences'" aria-label="info-mobile">
+                        <k-img-lazyload device="mobile" class="img-mobile" [src]="item.img_url_mobile" [alt]="item.alt">
+                        </k-img-lazyload>
+                      </a>
+                      <a [routerLink]="['/story', item.type, item.alias]"
+                        *ngIf="item.img_url && item.type !== 'experiences'" aria-label="info-desktop">
+                        <k-img-lazyload device="desktop" class="img-desktop" [src]="item.img_url" [alt]="item.alt">
+                        </k-img-lazyload>
+                      </a>
+
+                      <a [routerLink]="['/story', item.type, item.alias]"
+                        *ngIf="!item.img_url && !item.img_url_mobile && item.type !== 'experiences'"
+                        aria-label="info-mobile-noimg">
+                        <img class="img-noimg" src="/assets/images/noimage.jpg" [alt]="item.alt" />
+                      </a>
+                      <!--If type is  experience-->
+                      <a [routerLink]="['/experience' , item.alias]"
+                        *ngIf="item.img_url_mobile && item.type === 'experiences'">
+                        <k-img-lazyload device="mobile" class="img-mobile" [src]="item.img_url_mobile" [alt]="item.alt">
+                        </k-img-lazyload>
+                      </a>
+
+                      <a [routerLink]="['/experience' , item.alias]"
+                        *ngIf="item.img_url && item.type === 'experiences'">
+                        <k-img-lazyload device="desktop" class="img-desktop" [src]="item.img_url" [alt]="item.alt">
+                        </k-img-lazyload>
+                      </a>
+
+                      <a [routerLink]="['/experience' , item.alias]"
+                        *ngIf="!item.img_url && !item.img_url_mobile && item.type === 'experiences'">
+                        <img class="img-noimg" src="/assets/images/noimage.jpg" [alt]="item.alt" />
+                      </a>
+                      <!-- <button class="bookmark" [ngClass]="{ bookmarked: item.bookmarked }" (click)="bookmark(item)">
+                        <i class="far fa-bookmark"></i>
+                      </button> -->
+                      <k-bookmark-btn *ngIf="item.type !== 'spotlight'" [item]='item' [btnType]="'home'"></k-bookmark-btn>
+                    </div>
+                  </div>
+                  <div class="description">
+                    <div class="category-type" *ngIf="item.type">
+                      <a *ngIf="item.type === 'experiences'" [routerLink]="['/search']"
+                        [queryParams]=" {type: 'experiences'}">{{item.type_title}}</a>
+                      <a *ngIf="item.type !== 'experiences'" [routerLink]="['/search']"
+                        [queryParams]=" {type: 'stories', story_type: item.type}">{{item.type_title}}</a>
+
+                    </div>
+                    <h3>
+                      {{item.title}}
+                    </h3>
+                    <div class="short-desc" *ngIf="item.short_description && !isMobile"
+                      [innerHTML]="item.short_description">
+                    </div>
+                    <div class="noted-country-time">
+                      <div class="tags">
+                        <ul>
+                          <li *ngIf="item.country">
+                            <a *ngIf="item.redirect_the_search_page && item.type !== 'experiences' "
+                              [routerLink]="['/search']"
+                              [queryParams]="{ type: 'stories', country: item.country_id }">{{ item.country }}</a>
+                            <a *ngIf="item.redirect_the_search_page && item.type === 'experiences' "
+                              [routerLink]="['/search']"
+                              [queryParams]="{ type: 'experiences', country: item.country_id }">{{ item.country }}</a>
+                            <a *ngIf="!item.redirect_the_search_page"
+                              [routerLink]="['/all-countries', item.country]">{{ item.country }}</a>
+                          </li>
+                          <li *ngIf="item.sub_country && item.sub_country !== 'Singapore'">
+                            <span>{{item.sub_country}}</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="days-time" *ngIf="item.published_date">
+                        <span>/</span>
+                        <span>{{item.published_date}}</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group pt-10 text-center">
+          <a [routerLink]="['/search']" [queryParams]=" {type: 'stories'}" class="btn btn-green btn-rounded medium">
+            See all stories</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Forum -->
+  <k-home-forum></k-home-forum>
+
+  <div class="explore-by-country pt-30 pb-30" *ngIf="htmlData.countries">
+    <div class="container">
+      <div class="block-title">
+        <h3>{{ htmlData.countries.title }}</h3>
+      </div>
+      <div class="list-view grid-style animation popup" *ngIf="
+          htmlData.countries.list_countries &&
+          htmlData.countries.list_countries.length > 0
+        ">
+        <div class="row" *ngIf="!showMoreCountry">
+          <div class="col-6 col-md-3" *ngFor="let item of htmlData.countries.list_countries | slice: 0:4">
+            <div class="item">
+              <div class="thumbnail">
+                <a [routerLink]="['/search']" [queryParams]="{country: item.id}" *ngIf="item.redirect_the_search_page">
+                  <k-img-lazyload class="img-mobile" *ngIf="item.img_url_mobile" [src]="item.img_url_mobile"
+                    [alt]="item.alt" device="mobile"></k-img-lazyload>
+                  <k-img-lazyload class="img-desktop" *ngIf="item.img_url" [src]="item.img_url" [alt]="item.alt"
+                    device="desktop"></k-img-lazyload>
+                  <img class="img-noimg" *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg"
+                    [alt]="item.alt" />
+                  <span class="static-icon big-size">
+                    <i class="far fa-globe"></i>
+                  </span>
+                  <span class="subtitle big-size">
+                    {{ item.name }}
+                  </span>
+                </a>
+                <a [routerLink]="['/all-countries', item.alias]" *ngIf="!item.redirect_the_search_page">
+                  <k-img-lazyload class="img-mobile" *ngIf="item.img_url_mobile" [src]="item.img_url_mobile"
+                    [alt]="item.alt" device="mobile"></k-img-lazyload>
+                  <k-img-lazyload class="img-desktop" *ngIf="item.img_url" [src]="item.img_url" [alt]="item.alt"
+                    device="desktop"></k-img-lazyload>
+                  <img class="img-noimg" *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg"
+                    [alt]="item.alt" />
+
+                  <span class="static-icon big-size">
+                    <i class="far fa-globe"></i>
+                  </span>
+                  <span class="subtitle big-size">
+                    {{ item.name }}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="showMoreCountry">
+          <div class="col-6 col-md-3" *ngFor="let item of htmlData.countries.list_countries">
+            <div class="item">
+              <div class="thumbnail">
+                <a [routerLink]="['/all-countries', item.alias]">
+                  <k-img-lazyload [src]="item.img_url" [alt]="item.title"></k-img-lazyload>
+                  <span class="static-icon big-size">
+                    <i class="far fa-globe"></i>
+                  </span>
+                  <span class="subtitle big-size">
+                    {{ item.name }}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group pt-10 text-center">
+          <button class="btn btn-green btn-rounded medium" [routerLink]="['/all-countries']">
+            Show more countries
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

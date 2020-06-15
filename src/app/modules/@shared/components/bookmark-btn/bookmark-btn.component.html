@@ -1,0 +1,14 @@
+<div class="bookmark-group" *ngIf="btnType=='home'">
+  <button class="btn-bookmark" aria-label="btn-bookmark edit" [ngClass]="{ bookmarked: item.bookmarked }"
+    (click)="bookmark(item)">
+    <i class="far fa-bookmark"></i>
+  </button>
+</div>
+
+<button class="btn-bookmark" aria-label="btn-bookmark edit" [ngClass]="{ bookmarked: item.bookmarked }"
+  (click)="bookmark(item)" *ngIf="btnType=='button'">
+  <i class="far fa-bookmark"></i>
+</button>
+<div [ngClass]="{ bookmarked: item.bookmarked }" (click)="bookmark(item)" *ngIf="btnType=='inside'">
+  <i class="fal fa-bookmark"></i>
+</div>

@@ -1,0 +1,16 @@
+<div class=" pt-20  pb-15" *ngIf="amenities && amenities.list && amenities.list.length > 0">
+  <h3 class="title" *ngIf="amenities.title">{{amenities.title}}</h3>
+  <div class="infor-list">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4" *ngFor="let amenitie of amenities.list">
+        <div class="item">
+          <div class="icon" *ngIf="amenitie.icon">
+            <i class="{{ amenitie.icon }}"></i>
+          </div>
+          <div *ngIf="amenitie.value" [innerHTML]="amenitie.value">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

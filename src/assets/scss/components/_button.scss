@@ -1,0 +1,104 @@
+.btn {
+    height: 42px;
+    line-height: 42px !important;
+    padding: 0 30px !important;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    border: none !important;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    // min-width: 200px;
+    font-size: 12px !important;
+    @media (min-width: 768px) {
+        // 
+        font-size: 16px !important;
+        height: 50px;
+        line-height: 50px !important;
+    }
+    &.small {
+        min-width: 200px;
+    }
+    &.medium {
+        min-width: 200px;
+        @media (min-width: 768px) {
+            min-width: 300px;
+        }
+    }
+    &.btn-menu,
+    &.btn-search,
+    &.btn-share,
+    &.btn-user {
+        min-width: 0;
+        padding: 0 !important;
+        font-size: 20px !important;
+    }
+    &.btn-user {
+        text-align: center;
+    }
+    &-rounded {
+        border-radius: 42px !important;
+        @media (min-width: 768px) {
+            border-radius: 50px !important;
+        }
+    }
+    &-dark {
+        background-color: #382c14;
+        color: #fff !important;
+    }
+    &-light {
+        background-color: #fff;
+        color: #000;
+    }
+    &-default {
+        background-color: #d34f1d;
+        color: #fff !important;
+        &:hover {
+            background-color: #bd471a;
+        }
+    } 
+    &-green {
+        background-color: #9a9e3a;
+        color: #fff !important;
+        &:hover {
+            background-color: #838731;
+        }
+    }
+    &-primary {
+        background-color: transparent;
+        border: solid 1px #979797;
+        letter-spacing: 1px;
+        color: #000;
+    }
+    &-larger {
+        width: 100%;
+        display: block;
+    }
+}
+
+.btn-group {
+    display: block;
+   
+}
+.btn-bookmark {
+    i {
+        text-shadow: 0px 0px 5px #000000;
+      }
+}
+.group-btn {
+    .btn-enquiry {
+        background-color: #d34f1d ;
+        height: 50px;
+        min-width: 300px;
+        border: none;
+        border-radius: 50px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #fff;
+        outline: none;
+    }    
+}

@@ -1,0 +1,132 @@
+<div class="search-filter pt-20" *ngIf="showSearchBar">
+  <div class="container">
+    <div class="block-title larger-size pb-10 pt-10">
+      <h3>Search</h3>
+    </div>
+    <div class="webform">
+      <form action="">
+        <div class="form-group search-group">
+          <input type="text" name="searchInput" aria-label="Search Input" class="form-control"
+            placeholder="Enter your keyword" [(ngModel)]="filter.term">
+          <button (click)="clickSeachBtn()" aria-label="Button Search" class="btn btn-green form-action">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="filter-option" *ngIf="showSearchBar">
+  <div class=" container">
+    <div class="webform">
+      <p class="result-count" *ngIf="htmlData && htmlData.total"> {{htmlData.total}} results</p>
+      <nb-radio-group *ngIf="optionsType">
+        <nb-radio *ngFor="let option of optionsType" [value]="option.id" [checked]="option.checked"
+          [disabled]="option.disabled" (valueChange)="radioChange($event)">
+          {{ option.label }}
+        </nb-radio>
+      </nb-radio-group>
+      <button (click)="toggleFilter()" aria-label="Button Show Filter" class="form-action">Filter
+        options</button>
+
+    </div>
+  </div>
+</div>
+<div class="filter-option filter-option-mobile" *ngIf="!showSearchBar">
+  <div class="container">
+    <div class="webform">
+      <button (click)="toggleFilter()" aria-label="Button Show Filter" class="form-action">Filter
+        options</button>
+    </div>
+  </div>
+</div>
+<div class="search-result pb-50">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="filter-widget" [ngClass]="{'show-mobile': showFilterMobile}">
+          <div class="filter-item" *ngIf="optionsTags && optionsTags.length > 0">
+            <h3>Tags</h3>
+            <k-multi-select-item [title]="'Select tag(s)'"
+              [itemsShowLimit] = "3"
+              [enableCheckAll]= "false"
+              [items]="optionsTags" [defaultItems]="defaultListTags"
+              (OnSelectedItems)="mutiselectChange($event)"></k-multi-select-item>
+          </div>
+          <div class="filter-item" *ngIf="optionsCountry && optionsCountry.length > 0">
+            <h3>Countries</h3>
+            <form action="">
+              <div class="form-group form-check" *ngFor="let item of optionsCountry">
+                <input type="checkbox" [name]="item.name" [id]="item.id" (change)="cbChange( item, filter.country)"
+                  [(ngModel)]="item.checked">
+                <label [for]=" item.id">{{item.name}}</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="filter-item" *ngIf="filter.type === 'stories'">
+            <h3>Story types</h3>
+            <form action="">
+              <div class="form-group form-check" *ngFor="let item of optionsStoryType">
+                <input type="checkbox" [name]="item.name" [id]="item.id" (change)="cbChange( item, filter.story_type)"
+                  [(ngModel)]="item.checked">
+                <label [for]=" item.id">{{item.name}}</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="filter-item" *ngIf="filter.type === 'experiences'">
+            <h3>Activities</h3>
+            <form action="">
+              <div class="form-group form-check" *ngFor="let item of optionsActivity">
+                <input type="checkbox" [name]="item.name" [id]="item.id" (change)="cbChange( item, filter.activity )"
+                  [(ngModel)]="item.checked">
+                <label [for]=" item.id">{{item.name}}</label>
+              </div>
+            </form>
+          </div>
+          <button (click)="clickFilterBtn()" aria-label="Button Filter" class="btn btn-green form-action">Apply
+            Filter</button>
+
+        </div>
+      </div>
+      <div class="col-md-9" *ngIf="htmlData">
+        <div class="filter-option-result" *ngIf="htmlData.results">
+          <p *ngIf="htmlData.results.length > 0" class="message">Showing {{htmlData.results.length}} of
+            {{htmlData.total}} result(s).</p>
+          <p *ngIf="htmlData.results.length === 0" class="message">Sorry, nothing matched your search. Please try again.
+          </p>
+        </div>
+        <div class="list-view stories-result" *ngIf="htmlData.results">
+
+          <div class="row" *ngIf="htmlData.results.length > 0">
+            <div class="col-12 col-sm-6 col-md-12" *ngFor="let item of htmlData.results">
+              <k-spotlight-item [item]="item" [isShowCountry]="true" [isSpotlight]="false" [isShowShortDesc]="true">
+              </k-spotlight-item>
+            </div>
+          </div>
+
+          <div class="row pagination pb-0" *ngIf="pager.pages && pager.pages.length > 1">
+            <ul>
+              <li [ngClass]="{ disabled: pager.currentPage == 0 }">
+                <a disabled (click)="searchAndFilter(0)">First</a>
+              </li>
+              <li [ngClass]="{ disabled: pager.currentPage == 0}">
+                <a (click)="searchAndFilter(pager.currentPage - 1)">&lt;</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage == page }">
+                <a (click)="searchAndFilter(page)">{{ page + 1}}</a>
+              </li>
+              <li [ngClass]="{ disabled: pager.currentPage == pager.totalPages - 1 }">
+                <a (click)="searchAndFilter(pager.currentPage + 1)">&gt;</a>
+              </li>
+              <li [ngClass]="{ disabled: pager.currentPage == pager.totalPages - 1 }">
+                <a (click)="searchAndFilter(pager.totalPages - 1)">Last</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

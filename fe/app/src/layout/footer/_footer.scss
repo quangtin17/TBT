@@ -1,0 +1,60 @@
+.footer {
+    background-color: var(--dark);
+    .about-obw {
+        @include responsive(mobile) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .logo {
+            @include responsive(mobile) {
+                padding-bottom: 20px;
+            }
+        }
+        p {
+            color: var(--white);
+            @include fontSize(null, null, 12px, null);
+            line-height: 19px;
+            margin: 0;
+        }
+    }
+    .copyright {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0px 0 10px;
+            @include clearfix;
+            li {
+                float: left;
+                display: inline-block;
+                padding-right: 13px;
+                position: relative;
+                @include fontSize(null, null, 11px, null);
+                letter-spacing: 1px;
+                font-weight: 400;
+                a {
+                    color: var(--white);
+                    line-height: 16px;
+                }
+                &:after {
+                    content: '·';
+                    position: absolute;
+                    top: 0%;
+                    right: 5px;
+                    color: var(--white);
+                    line-height: 16px;
+                }
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+        p {
+            margin: 0;
+            @include fontSize(null, null, 11px, null);
+            line-height: 16px;
+            color: var(--gray-4);
+        }
+    }
+}

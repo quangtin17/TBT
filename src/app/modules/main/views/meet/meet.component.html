@@ -1,0 +1,84 @@
+<div class="meet-container" *ngIf="htmlMeetData">
+  <div class="post-content-wrapper">
+    <div class="container">
+      <div class="post-content" *ngIf="htmlMeetData">
+        <div class="post-header">
+          <div class="post-content-type" *ngIf="htmlMeetData.type">
+            <a [routerLink]="['/search']"
+              [queryParams]="{ type: 'stories', story_type: htmlMeetData.type }">{{ htmlMeetData.type }}</a>
+          </div>
+          <div class="post-content-title mb-5" *ngIf="htmlMeetData.title">
+            <h1>{{ htmlMeetData.title }}</h1>
+          </div>
+          <div class="post-content-tags mb-20">
+            <ul>
+              <li *ngIf="htmlMeetData.country">
+                <a *ngIf="!htmlMeetData.redirect_the_search_page"
+                  [routerLink]="['/all-countries', htmlMeetData.country]">{{
+                  htmlMeetData.country
+                }}</a>
+                <a *ngIf="htmlMeetData.redirect_the_search_page && htmlMeetData.type === 'experiences'"
+                  [routerLink]="['/search']" [queryParams]="{type: 'experiences', country: htmlMeetData.country_id}">{{
+                  htmlMeetData.country
+                }}</a>
+                <a *ngIf="htmlMeetData.redirect_the_search_page && htmlMeetData.type !== 'experiences'"
+                  [routerLink]="['/search']" [queryParams]="{type: 'stories', country:htmlMeetData.country_id}">{{
+                  htmlMeetData.country
+                }}</a>
+              </li>
+              <li *ngIf="
+                      htmlMeetData.sub_country &&
+                      htmlMeetData.sub_country !== 'Singapore'
+                    ">
+                <span>{{ htmlMeetData.sub_country }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bookmark">
+            <div class="bookmark-inside">
+              <k-bookmark-btn [item]="spotlightData" [btnType]="'inside'"></k-bookmark-btn>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-content-description">
+          <div class="meet-group mb-15" *ngIf="htmlMeetData.user">
+            <!--If there is only one photo-->
+            <div class="meet-group-img text-center" *ngIf="htmlMeetData.user.image">
+              <img [src]="htmlMeetData.user.image.img_url_mobile" alt="{{ htmlMeetData.user.name }}" />
+            </div>
+            <div class="meet-group-infor text-center">
+              <h3 *ngIf="htmlMeetData.user.name">
+                {{ htmlMeetData.user.name }}
+              </h3>
+              <p *ngIf="htmlMeetData.user.address">
+                {{ htmlMeetData.user.address }}
+              </p>
+            </div>
+            <div class="meet-group-desc" *ngIf="htmlMeetData.user.description; else"
+              [innerHTML]="htmlMeetData.user.description"></div>
+          </div>
+          <div *ngIf="htmlMeetData.body" class="body-container">
+            <div class="body-item" *ngFor="let item of htmlMeetData.body" [ngSwitch]="item.type">
+              <div *ngSwitchCase="'free_text'" [innerHTML]="item.value"></div>
+              <k-video-youtube *ngSwitchCase="'embedded_video'" [youtubeVideo]="item.video"></k-video-youtube>
+              <div *ngSwitchDefault></div>
+              <k-difference-you-make *ngSwitchCase="'difference_you_make'" [differenceYouMake]="item">
+              </k-difference-you-make>
+            </div>
+          </div>
+          <k-contributors [listContributors]="htmlMeetData.list_contributors"></k-contributors>
+        </div>
+        <k-related-topic *ngIf="htmlMeetData.list_tags && htmlMeetData.list_tags.length > 0"
+          [list]="htmlMeetData.list_tags"></k-related-topic>
+      </div>
+    </div>
+  </div>
+
+  <k-story-forum [storyId]="htmlMeetData.id"> </k-story-forum>
+  <div class="float-container">
+    <div class="action-container">
+      <k-bookmark-btn [item]="spotlightData" [btnType]="'button'"></k-bookmark-btn>
+    </div>
+  </div>
+</div>

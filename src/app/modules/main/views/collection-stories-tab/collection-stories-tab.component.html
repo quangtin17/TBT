@@ -1,0 +1,49 @@
+<div class="collection-stories-container" *ngIf="htmlData">
+  <div class="row webform">
+    <div class="col-12 col-md-6">
+      <nb-radio-group class="d-flex">
+        <nb-radio [checked]='true'> Show stories </nb-radio>
+        <nb-radio (valueChange)="goToRelative('experiences')"> Show experiences </nb-radio>
+      </nb-radio-group>
+    </div>
+    <div class="col-12 col-md-6" *ngIf="selectedCountries && selectedCountries.length > 0">
+      <k-multi-select-item [title]="'Select countries'" [items]="optionsCountry" [defaultItems]="selectedCountries"
+        (OnSelectedItems)="onSelectedCountries($event)"></k-multi-select-item>
+    </div>
+  </div>
+
+  <div class="row pt-30" *ngIf="!htmlData.list_stories || htmlData.list_stories.length === 0 ">
+    <div class="col-12 col-md-12">
+      <p class="no-result">No story found!</p>
+    </div>
+  </div>
+  <div class="row pt-30" *ngIf="!!htmlData.list_stories && htmlData.list_stories.length > 0 ">
+    <div class="col-6 col-md-3" *ngFor="let item of htmlData.list_stories; let first = first">
+      <k-spotlight-item [item]="item" [isSpotlight]="false" [isShowShortDesc]="false" [isShowCountry]="true"
+        [isShowPublish]="false">
+      </k-spotlight-item>
+    </div>
+  </div>
+
+  <!-- Paging with start page is 0 - Best Drupal -->
+  <div class="row pagination" *ngIf="pager.pages && pager.pages.length > 1">
+    <ul>
+      <li [ngClass]="{ disabled: pager.currentPage === 0 }">
+        <a (click)="getCollectionTabDataByAlias(alias, 0)">First</a>
+      </li>
+      <li [ngClass]="{ disabled: pager.currentPage === 0 }">
+        <a (click)="getCollectionTabDataByAlias(alias, pager.currentPage - 1)">&lt;</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }">
+        <a (click)="getCollectionTabDataByAlias(alias, page)">{{ page + 1}}</a>
+      </li>
+      <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages - 1 }">
+        <a (click)="getCollectionTabDataByAlias(alias, pager.currentPage + 1)">&gt;</a>
+      </li>
+      <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages - 1 }">
+        <a (click)="getCollectionTabDataByAlias(alias, pager.totalPages - 1)">Last</a>
+      </li>
+    </ul>
+  </div>
+
+</div>

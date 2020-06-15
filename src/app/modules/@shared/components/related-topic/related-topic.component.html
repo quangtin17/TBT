@@ -1,0 +1,9 @@
+<h3 class="title">Related</h3>
+<ul class="tags-container">
+  <li class="item-tag" *ngFor="let item of list">
+    <a *ngIf="type !== 'experience'" [routerLink]="['/search']"
+      [queryParams]="{ type: 'stories', tag: item.id }">{{ item.name }}</a>
+    <a *ngIf="type === 'experience'" [routerLink]="['/search']"
+      [queryParams]="{ type: 'experiences', tag: item.id }">{{ item.name }}</a>
+  </li>
+</ul>

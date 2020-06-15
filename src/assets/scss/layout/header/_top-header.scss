@@ -1,0 +1,29 @@
+%top-header {
+    background: var(--primary);
+    padding: 20px 0;
+    .sharing {
+        a {
+            color: var(--white);
+            @include fontSize(null, null, 20px, null);
+        }
+    }
+    .logo {
+        @include clearfix;
+        a {
+            display: block;
+            float: left;
+            height: 33px;
+            &.logo-obw {
+                margin-right: 10px;
+            }
+            &.logo-tbt {
+                padding: 6px 0 0 10px;
+                border-left: solid 1px var(--white);
+                vertical-align: top;
+                img {
+                    height: 20px;
+                }
+            }
+        }
+    }
+}

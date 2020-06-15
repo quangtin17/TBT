@@ -1,0 +1,24 @@
+<div class="journey-container" *ngIf="htmlData">
+  <k-banner *ngIf="htmlData.banner" [bannerData]="htmlData.banner"></k-banner>
+  <div class="journey-tab pb-30">
+    <div class="bookmark">
+      <div class="container">
+        <div class="bookmark-inside">
+            <k-bookmark-btn [item]="spotlightData" [btnType]="'inside'"></k-bookmark-btn>
+        </div>
+      </div>
+    </div>
+    <nb-route-tabset class="journey-tabset" [tabs]="tabs" fullWidth></nb-route-tabset>
+
+  </div>
+</div>
+
+<div class="float-container">
+  <div class="action-container">
+    <k-bookmark-btn [item]="spotlightData" [btnType]="'button'"></k-bookmark-btn>
+    <button class="btn-enquiry" (click)="onOpenEnquiryDialog()"> 
+      <span>Send an enquiry</span>
+    </button>
+  </div>
+
+</div>

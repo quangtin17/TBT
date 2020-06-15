@@ -1,0 +1,176 @@
+.list-view {
+    
+
+    .item {
+        margin: 20px 0 0;
+    }
+
+    .description {
+        h3 {
+            margin: 0;
+            a {
+                color: var(--black);
+                @include fontSize(null, null, 14px, null);
+                line-height: 17px;
+            }
+        }
+    }
+
+    .thumbnail {
+        a {
+            display: block;
+            position: relative;
+            line-height: 0;
+            color: var(--white);
+            img {
+                width: 100%;
+                border-radius: 4px;
+            }
+            .bookmark {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                @include fontSize(null, null, 20px, null);
+                &.bookmarked {
+                    color: var(--color-link);
+                    i {
+                        font-weight: 600;
+                    }
+                }
+            }    
+            .static-icon {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                @include fontSize(null, null, 12px, null);
+            }
+
+            .subtitle {
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                display: block;
+                width: 100%;
+                padding: 0 10px;
+                @include fontSize(null, null, 12px, null);
+                line-height: 12px;
+            }
+        
+            .collection-items {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                font-size: 12px;
+                i {
+                    margin: 0 4px 0 0;
+                }
+            }
+        }
+    }
+
+    &.grid-style {
+        .item {
+            .description {
+                margin: 8px 0 0;
+            }
+        }
+        .tags {
+            ul {
+                padding-top: 0;
+            }
+        }
+    }
+
+    &.list-style {
+       
+        .item {
+            &.spotlight {
+                margin-top: 10px;
+                .thumbnail {
+                    .bookmark {
+                        @include fontSize(null, null, 20px, null);
+                        right: 20px;
+                        top: 20px;
+                    }
+                }
+                .description {
+                    h3 {
+                        font-weight: bold;	
+                        line-height: 22px;
+                        a {
+                            @include fontSize(null, null, 18px, null);
+                        }
+                    }
+                }
+            }
+            
+            
+            &:not(.spotlight){
+                @include clearfix;
+                .tags {
+                    ul {
+                        padding: 0px 0 4px;
+                    }
+                }
+                .thumbnail {
+                    float: left;
+                    width: 120px;
+                }
+                .description {
+                    float: left;
+                    width: calc(100% - 120px);
+                    padding: 0 0 0 10px;
+                }
+            }
+
+        }
+    }
+
+    .tags {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 8px 0 4px;
+            @include clearfix;
+            li {
+                float: left;
+                display: inline-block;
+                padding-right: 13px;
+                position: relative;
+                @include fontSize(null, null, 11px, null);
+                letter-spacing: 1px;
+                font-weight: 600;
+                text-transform: uppercase;
+                a {
+                    color: var(--gray-4);
+                    line-height: 16px;
+                }
+                &:after {
+                    content: '·';
+                    position: absolute;
+                    top: 0%;
+                    right: 5px;
+                    color: var(--gray-4);
+                    line-height: 16px;
+                }
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .category-name {
+        margin: 2px 0 0;
+        a {
+            color: var(--gray-1);
+            @include fontSize(null, null, 11px, null);
+            line-height: 16px;
+            font-weight: 600;
+        }
+    }
+
+
+}

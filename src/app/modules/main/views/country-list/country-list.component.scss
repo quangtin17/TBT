@@ -1,0 +1,16 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/paginaton';
+@import '../../../../../assets/scss/components/travel-inspiration';
+
+
+@include nb-install-component() {
+  ::ng-deep {
+    @include list-view;
+    @include travel-inspiration;
+    @include pager;
+  }
+}

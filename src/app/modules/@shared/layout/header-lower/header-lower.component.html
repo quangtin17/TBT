@@ -1,0 +1,63 @@
+<div class="bottom-menu-container mobile-menu clearfix">
+  <div class="bottom-menu-item">
+    <button class="btn btn-menu" aria-label="menu button" [ngClass]="{'open': openMenu}" (click)="clickMenuBtn()">
+      <i class="far fa-bars"></i>
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="bottom-menu-item">
+    <button class="btn btn-search" aria-label="search button" (click)="clickSeachBtn()">
+      <i class="far fa-search"></i>
+    </button>
+  </div>
+  <div class="bottom-menu-item float-right">
+    <k-user></k-user>
+  </div>
+</div>
+
+<div class="bottom-menu-container desktop-menu">
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li *ngFor="let menu of MenuItems|slice:0:6"
+          [ngClass]="(menu.below && menu.below.length > 0) ? 'has-submenu' : '' ">
+          <a *ngIf="menu.relative && !menu.external  && (menu.title !== 'FAQ' && menu.title !== 'Contact Us') && !menu.type"
+            [routerLink]="[ menu.relative ]">{{menu.title}}</a>
+          <a *ngIf="menu.relative && menu.external  && (menu.title !== 'FAQ' && menu.title !== 'Contact Us')"
+            [href]="menu.relative" [target]="'_blank'" rel="noreferrer">{{menu.title}}</a>
+          <a *ngIf="menu.relative && !menu.external  && menu.type === 'stories'" [routerLink]="[ menu.relative ]"
+            [queryParams]="{type: menu.type}">{{menu.title}}</a>
+          <a *ngIf="menu.relative && !menu.external  && menu.type === 'experiences'" [routerLink]="[ menu.relative ]"
+            [queryParams]="{type: menu.type}">{{menu.title}}</a>
+          <div class="submenu" *ngIf="menu.below && menu.below.length > 0">
+            <ul>
+              <li *ngFor="let item of menu.below">
+                <a *ngIf="!item.country && !item.story_type && !item.activity"
+                  [routerLink]="[ item.relative ]">{{item.title}}</a>
+                <a *ngIf="item.type && item.country" [routerLink]="[ item.relative ]"
+                  [queryParams]="{type: item.type, country: item.country}">{{item.title}}</a>
+                <a *ngIf="item.story_type && item.type === 'stories'" [routerLink]="[ item.relative ]"
+                  [queryParams]="{type: item.type, story_type: item.story_type}">{{item.title}}</a>
+                <a *ngIf="item.activity && item.type === 'experiences'" [routerLink]="[ item.relative ]"
+                  [queryParams]="{type: item.type, activity: item.activity}">{{item.title}}</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+    <k-user></k-user>
+
+    <div class="search-navigation-desktop">
+      <form action="">
+        <div class="form-group">
+          <input type="text" class="form-control" name="searchText" aria-label="searchText" [(ngModel)]="searchText">
+          <button aria-label="search" (click)="clickSeachBtnDesktop()" #searchButton><i class="fal fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

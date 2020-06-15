@@ -1,0 +1,342 @@
+@mixin list-view {
+  .list-view {
+    
+    @media (min-width: 768px) {
+      &.animation {
+        .item {
+          transition: all 0.5s ease;
+        }
+      }
+      &.popup {
+        .item {
+          &:hover {
+            transform: translate(0, -5px);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+          }
+        }
+      }
+    }
+    .item {
+      margin: 0px 0 20px;
+    }
+
+    .description {
+      .noted-country-time {
+        .tags,
+        .days-time {
+          display: inline-block;
+        }
+        .days-time {
+          span {
+            color: #b3b3b3;
+            font-size: 12px;
+            line-height: 16px;
+            display: inline-block;
+            &:first-child {
+              padding: 0 7px 0 10px;
+            }
+          }
+        }
+      }
+      .short-desc {
+        font-size: 16px;
+        line-height: 20px;
+        color: #69696f;
+      }
+      h3 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 600;
+        a {
+          color: #000;
+          font-size: 18px;
+          line-height: 22px;
+
+          @media (max-width: 767px) {
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+    }
+
+    .thumbnail {
+
+      a,
+      .thumbnail-inner {
+        // .thumbnail-inner: div contain img
+        display: block;
+        position: relative;
+        line-height: 0;
+        color: #fff;
+        .img-mobile {
+          display: none;
+          @include responsive(mobile) {
+            display: block;
+          }
+        }
+
+        .img-desktop {
+          @include responsive(mobile) {
+            display: none;
+          }
+        }
+        img {
+          width: 100%;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &.img-mobile {
+            display: none;
+            @include responsive(mobile) {
+              display: block;
+            }
+          }
+
+          &.img-desktop {
+            @include responsive(mobile) {
+              display: none;
+            }
+          }
+        }
+
+        .bookmark {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          font-size: 20px;
+          color: #fff;
+          
+          &.bookmarked {
+
+            i {
+              font-weight: 600;
+            }
+          }
+        }
+
+        .static-icon {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          font-size: 12px;  
+         
+          &.big-size {
+            font-size: 20px;
+          }
+        }
+
+        .subtitle {
+          position: absolute;
+          bottom: 10px;
+          left: 0px;
+          display: block;
+          width: 100%;
+          padding: 0 10px;
+          font-size: 12px;
+          line-height: 12px;
+          text-shadow: 0px 0px 5px #000000 ;
+          &.big-size {
+            bottom: 15px;
+            font-size: 20px;
+          }
+        }
+
+        .collection-items {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          font-size: 12px;
+
+          i {
+            margin: 0 4px 0 0;
+          }
+        }
+      }
+    }
+
+    &.grid-style {
+      .item {
+        .description {
+          margin: 8px 0 0;
+        }
+      }
+
+      .tags {
+        ul {
+          padding-top: 0;
+        }
+      }
+    }
+
+    &.list-style {
+      .item {
+        &.spotlight {
+          margin-top: 10px;
+
+          .thumbnail {
+            .bookmark {
+              font-size: 20px;
+              right: 20px;
+              top: 20px;
+            }
+          }
+
+          .description {
+            h3 {
+              font-weight: bold;
+              line-height: 22px;
+
+              a {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+
+        &:not(.spotlight) {
+          @include clearfix;
+
+          .tags {
+            ul {
+              padding: 0px 0 4px;
+              
+            }
+          }
+
+          .thumbnail {
+            float: left;
+            width: 120px;
+          }
+
+          .description {
+            float: left;
+            width: calc(100% - 120px);
+            padding: 0 0 0 10px;
+          }
+        }
+      }
+    }
+
+    .category {
+      color: #9a9e3a;
+      margin: 0 0 4px;
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 600;
+
+      a {
+        color: #9a9e3a;
+        margin: 0 0 4px;
+        font-size: 11px;
+        line-height: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .tags {
+      &.expriences-tags {
+        padding: 0; 
+        ul {
+          padding: 0 0 5px;
+        }
+        a, span {
+          color: #9a9e3a;
+        }
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 8px 0 4px;
+        @include clearfix;
+
+        li {
+          // float: left;
+          display: inline-block;
+          padding-right: 13px;
+          position: relative;
+          letter-spacing: 1px;
+          font-weight: 600;
+
+          a,
+          span {
+            font-size: 12px;
+            color: #9194a1;
+            line-height: 16px;
+            font-weight: 600;
+          }
+
+          &:after {
+            content: '·';
+            position: absolute;
+            top: 0%;
+            right: 5px;
+            color: #9194a1;
+            line-height: 16px;
+            font-size: 12px;
+          }
+
+          &:last-child {
+            padding: 0;
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .category-name {
+      margin: 2px 0 0;
+
+      a {
+        color: #9b9b9b;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+      }
+    }
+  }
+  .our-collection  {
+    .list-view {
+      .item {
+        @media (min-width: 768px) {
+          border-radius: 4px;
+          overflow: hidden;
+          background-color: #ffffff;
+          .thumbnail {
+            img {
+              border-radius: 0;
+            }
+            .collection-items {
+              font-size: 16px;
+              left: 15px;
+            }
+          }
+          .description {
+            margin: 0;
+            padding: 10px 15px;
+            h3 {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+}

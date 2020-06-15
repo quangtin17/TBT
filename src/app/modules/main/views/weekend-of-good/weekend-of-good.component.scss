@@ -1,0 +1,120 @@
+@import "../../../@theme/styles/themes.scss";
+@import "../../../../../assets/scss/custom/custom.scss";
+
+@import "../../../../../assets/scss/components/button";
+@import "../../../../../assets/scss/components/post-content";
+@import "../../../../../assets/scss/components/list-view";
+@import "../../../../../assets/scss/components/community-forum-comment";
+
+@include nb-install-component() {
+  // .btn-bookmark {
+  //   height: 50px;
+  //   width: 50px;
+  //   background-color: #ffffff;
+  //   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  //   color: #9a9e3a;
+  //   border-radius: 50%;
+  //   margin-right: 10px;
+  // }
+
+  .float-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 60px;
+    padding: 5px 0;
+    z-index: 999;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .action-container {
+      padding: 0 20px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+    }
+
+    .btn-bookmark {
+      height: 50px;
+      width: 50px;
+      background-color: #ffffff;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+      color: #9a9e3a;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .btn-enquiry {
+      height: 50px;
+      width: 260px;
+      border-radius: 28px;
+      background-color: #9a9e3a;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+
+      span {
+        color: white;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  ::ng-deep {
+    @include list-view;
+    @include comment;
+    @include post-content;
+
+    .view-location {
+      padding-bottom: 25px;
+    }
+
+    .btn-scroll-top {
+
+      &:focus,
+      &:hover {
+        color: #d24f1d;
+      }
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .bookmark-inside {
+      position: absolute;
+      // top: 18px;
+      right: 15px;
+      z-index: 1;
+
+      i {
+        color: #9a9e3a;
+        font-size: 24px;
+      }
+    }
+
+    k-schedule-single {
+      .list-view {
+        .item {
+          .description {
+            .tags {
+              ul {
+                li {
+
+                  a,
+                  span {
+                    color: #9a9e3a;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

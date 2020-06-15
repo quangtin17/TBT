@@ -1,0 +1,83 @@
+@mixin banner {
+  .page-banner {
+    .page-heading {
+      // min-height: 400px;
+      // @include responsive(mobile) {
+      //   min-height: 200px;
+      // }
+      .image-hide {
+        display: none;
+      }
+    }
+
+    .video-youtube {
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      padding-top: 400px;
+      @include responsive(mobile) {
+        padding-top: 56.25%;
+      }
+      .overlay {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-size: cover;
+        z-index: 10;
+        cursor: pointer;
+
+        &:before {
+          content: '';
+          background: rgba(0, 0, 0, 0.25);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        i {
+          z-index: 2;
+          position: absolute;
+          font-size: 50px;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          color: #fff;
+          -webkit-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      youtube-player {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+// .banner {
+//     .single-photo {
+//         img {
+//             width: 100%;
+//         }
+
+//         @include responsive(mobile) {
+//             margin: 0 -20px;
+//         }
+//     }
+// }

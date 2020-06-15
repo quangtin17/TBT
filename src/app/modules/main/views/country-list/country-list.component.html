@@ -1,0 +1,65 @@
+<div class="countries-container" *ngIf="htmlData">
+  <k-banner *ngIf="htmlData.banner" [bannerData]="htmlData.banner"></k-banner>
+  <div class="explore-by-country pt-30 pb-30">
+    <div class="container">
+      <div class="list-view grid-style animation popup"
+        *ngIf="htmlData.list_countries && htmlData.list_countries.length > 0">
+        <div class="row">
+          <div class="col-12 col-md-3" *ngFor="let item of htmlData.list_countries; let first = first">
+            <div class="item">
+              <div class="thumbnail">
+                <!-- Item Redirect-->
+                <a [routerLink]="['/search']" [queryParams]="{type: 'stories',country: item.id}"
+                  *ngIf="item.redirect_the_search_page">
+                  <img class="img-mobile" *ngIf="item.img_url_mobile" [src]="item.img_url_mobile" [alt]="item.alt" />
+                  <img class="img-desktop" *ngIf="item.img_url" [src]="item.img_url" [alt]="item.alt" />
+                  <img class="img-noimg" *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg"
+                    [alt]="item.alt" />
+
+                  <span class="static-icon big-size">
+                    <i class="far fa-globe"></i>
+                  </span>
+                  <span class="subtitle big-size">
+                    {{ item.name }}
+                  </span>
+                </a>
+                <!-- Item Country-->
+                <a [routerLink]="['/all-countries', item.name]" *ngIf="!item.redirect_the_search_page">
+                  <img class="img-mobile" *ngIf="item.img_url_mobile" [src]="item.img_url_mobile" [alt]="item.alt" />
+                  <img class="img-desktop" *ngIf="item.img_url" [src]="item.img_url" [alt]="item.alt" />
+                  <img class="img-noimg" *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg"
+                    [alt]="item.alt" />
+                  <span class="static-icon big-size">
+                    <i class="far fa-globe"></i>
+                  </span>
+                  <span class="subtitle big-size">
+                    {{ item.name }}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pagination" *ngIf="htmlData.total_pages && htmlData.total_pages.length > 1">
+          <ul *ngIf="pager.pages && pager.pages.length">
+            <li [ngClass]="{ disabled: pager.currentPage === 0 }">
+              <a (click)="getCountriesListData(1)">First</a>
+            </li>
+            <li [ngClass]="{ disabled: pager.currentPage === 0 }">
+              <a (click)="getCountriesListData(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }">
+              <a (click)="getCountriesListData(page)">{{ page + 1 }}</a>
+            </li>
+            <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }">
+              <a (click)="getCountriesListData(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }">
+              <a (click)="getCountriesListData(pager.totalPages)">Last</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

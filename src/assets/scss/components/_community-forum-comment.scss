@@ -1,0 +1,102 @@
+@mixin comment {
+    .community-comment {
+        background-color: #f8f4ee;
+        padding: 20px 0;
+        box-sizing: border-box;
+        .container {
+            max-width: 950px;
+          }
+        &-title {
+            text-align: center;
+            padding: 0 0 20px;
+            h3 {
+                margin: 0 0 10px;
+                font-size: 18px;
+                line-height: 24px;
+                color: #1a1b3a;
+            }
+            p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 24px;
+                color: #444444;
+            }
+        }
+        &-item {
+            padding: 25px 0;
+            border-top: solid 1px #DCDCDF;
+            p {
+                line-height: 20px;
+            }
+            .avatar {
+                display: inline-block;
+                vertical-align: middle;
+                img {
+                    vertical-align: top;
+                    border-radius: 50%;
+                    max-width: 50px;
+                }
+            }
+            .username {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 18px;
+                font-weight: 600;
+                color: #000;
+                line-height: 24px;
+                padding: 0 0 0 15px;
+            }
+        }
+        &-desc {
+            padding: 14px 0 0;
+            p {
+                font-size: 16px;
+                line-height: 24px;
+                margin: 0;
+            }
+        }
+        &-action {
+            padding: 10px 0 0;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+              li {
+                color: #444444;
+                font-size: 16px;
+                line-height: 23px;
+                display: inline-block;
+                margin: 0 15px 0 0;
+                i {
+                  font-size: 12px;
+                  margin: 0 4px 0 0;
+                }
+              }
+            }
+        }
+        .link-to-forum {
+            padding: 16px 0 0;
+            a {
+              color: #d34f1d;
+              font-size: 16px;
+              line-height: 21px;
+              font-weight: 600;
+              i {
+                  font-size: 12px;
+              }
+            }
+        }
+        .explore-more-topic {
+            padding: 20px 0 5px;
+            border-top: solid 1px #DCDCDF;
+            a {
+                color: #444444;
+                font-size: 16px;
+                line-height: 20px;
+                i {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

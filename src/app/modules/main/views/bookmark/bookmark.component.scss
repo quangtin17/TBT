@@ -1,0 +1,74 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+@import '../../../../../assets/scss/components/widget';
+
+@import '../../../../../assets/scss/components/list-view';
+// // @import '../../../../../assets/scss/components/widget';
+
+@include nb-install-component() {
+  ::ng-deep {
+    @include list-view;
+    @include widget-nav;
+
+    .page-heading.bookmark-heading .row {
+      padding: 20px 0 20px;
+    }
+    .noted-country-time {
+      margin: 5px 0 0;
+    }
+    .align-title {
+      @media (min-width: 576px) {
+        height: 34px;
+        overflow: hidden;
+      }
+
+      @media (min-width: 767px) {
+        height: 44px;
+        overflow: hidden;
+      }
+    }
+    .block-title  {
+      padding: 10px 0 30px;
+
+      h3 {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+    .no-list {
+      padding: 32px 0;
+      border-top: solid 1px #ddd;
+      border-bottom: solid 1px #ddd;
+      margin: 32px 0 16px;
+      color: #a3a1a1;
+    }
+    nb-radio {
+      .radio-indicator {
+        border: solid 1px #d4dde5;
+        width: 16px;
+        height: 16px;
+      }
+
+      input:hover:not(:disabled)+.radio-indicator {
+        border-color: #d4dde5;
+      }
+
+      input:checked+.radio-indicator {
+        border: solid 1px #d4dde5;
+
+        &:before {
+          background-color: #9a9e3a;
+          width: 8px;
+          border: none;
+          padding: 0;
+          height: 8px;
+        }
+      }
+
+      label {
+        color: #4a4a4a;
+        font-size: 16px;
+      }
+    }
+  }
+}

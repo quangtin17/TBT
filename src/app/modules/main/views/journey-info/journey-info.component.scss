@@ -1,0 +1,16 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@include nb-install-component() {
+  ::ng-deep {
+    .infor-wrapper {
+      .col-md-12 {
+        &:first-child {
+          .infor-group {
+            border-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

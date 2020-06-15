@@ -1,0 +1,11 @@
+@import '../../modules/@theme/styles/themes.scss';
+
+@include nb-install-component() {
+  nb-card-body {
+    padding-bottom: 0;
+  }
+
+  nb-layout-column {
+    background-color: #fff;
+  }
+}

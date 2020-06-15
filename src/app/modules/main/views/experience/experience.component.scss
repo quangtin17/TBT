@@ -1,0 +1,111 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/banner';
+@import '../../../../../assets/scss/components/post-content';
+@import '../../../../../assets/scss/components/community-forum-comment';
+
+.float-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: 60px;
+  padding: 5px 0;
+  z-index: 999;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  .action-container {
+    padding: 0 20px;
+  }
+
+  button {
+    border: none;
+    outline: none;
+  }
+
+  .btn-bookmark {
+    height: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+    color: #9a9e3a;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .btn-enquiry {
+    height: 50px;
+    width: 260px;
+    border-radius: 28px;
+    background-color: #9a9e3a;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+
+    span {
+      color: white;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+@include nb-install-component() {
+  ::ng-deep {
+    @include banner;
+    @include post-content;
+    @include comment;
+    @include list-view;
+    @include banner;
+
+    .related-post {
+      .list-view {
+        .tags ul li a {
+          color: #9a9e3a;
+          font-weight: 600;
+        }
+
+        h3 {
+          color: #1a1b3a;
+          margin: 0 0 8px;
+        }
+
+        .organisation-name {
+          color: #9194a1;
+          ;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .post-content-tags {
+      ul {
+        li {
+
+          a,
+          span {
+            color: #9a9e3a;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .infor-wrapper {
+      .col-md-12 {
+        &:first-child {
+          .infor-group {
+            border-top: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}

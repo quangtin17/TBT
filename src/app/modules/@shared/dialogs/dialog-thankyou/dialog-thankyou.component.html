@@ -1,0 +1,22 @@
+<div class="dialog-container">
+  <div class="dialog-header container">
+    <h2>{{confirm_title}}</h2>
+    <button class="btn-close" (click)="closeDialog()">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body container">
+    <div class="description" *ngIf="!existed">
+      <p>Dear {{firstName}},</p>
+      <p [innerHTML]="confirm_message"></p>
+      <p class="mb-2">Warmly,</p>
+      <p>Our Better World</p>
+    </div>
+    <div class="description mb-0" *ngIf="existed">
+      <p>We have seen you before!</p>
+      <p> Please <a (click)="redirectLogin()">log in</a> to submit your enquiry.</p>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,54 @@
+<div class="page-banner" id="bannerId" *ngIf="bannerData">
+  <!-- Case 1: 1 photo -->
+  <!-- <div class="page-heading" *ngIf="gallery && gallery.length === 1"
+    [ngStyle]="{ 'background-image': 'url(' + gallery[0].medium + ')' }">
+    <img class="image-hide" [src]="gallery[0].medium" [alt]="gallery[0].description" />
+    <div class="caption-container" *ngIf="bannerData.title">
+      <div class="row align-items-center item">
+        <div class="col-12 text-center">
+          <h1>{{ bannerData.title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="page-heading" *ngIf="gallery && gallery.length === 1">
+    <img *ngIf="isMobile" class="w-100 banner-mobile" [src]="gallery[0].medium" [alt]="gallery[0].description" />
+    <div *ngIf="!isMobile" class="banner-background banner-desktop"
+      [ngStyle]="{ 'background-image': 'url(' + gallery[0].medium + ')' }">
+
+    </div>
+    <div class="caption-container" *ngIf="bannerData.title">
+      <div class="row align-items-center item">
+        <div class="col-12 text-center">
+          <h1>{{ bannerData.title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 2: >1 photo -->
+  <div class="gallery-container" *ngIf="gallery && gallery.length > 1 ">
+    <div class="gallery-thumnail gallery-thumnail-desktop"
+      *ngIf="bannerData.top_banner && bannerData.top_banner.img_url"
+      [ngStyle]="{'background-image': 'url('+ bannerData.top_banner.img_url +')'}">
+      <img class="gallery-image" [src]="bannerData.top_banner.img_url" alt="bannerData.top_banner.alt">
+      <div class="gallery-icons"></div>
+    </div>
+    <app-gallery [galleryImages]="gallery" [galleryOptions]="galleryOptions"
+      [ngClass]="{'multiple-image': gallery && gallery.length > 1}">
+    </app-gallery>
+  </div>
+
+
+
+  <!-- Case 3: Video-->
+  <div class="video-youtube" *ngIf="bannerData.banner_format == 'video'">
+    <div class="overlay" [hidden]="playedVideo" [style.backgroundImage]="'url(' + bannerData.video.img_url_mobile + ')'"
+      (click)="clickOverlay()" *ngIf="bannerData.video.img_url_mobile">
+      <i class="fas fa-play"></i>
+    </div>
+
+    <youtube-player [videoId]="bannerData.video.video_id" (ready)="savePlayer($event)" (change)="onStateChange($event)">
+    </youtube-player>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+:host {
+  display: block;
+}
+
+@include nb-install-component() {
+  .menu-dropdown-container {
+    .nav-widget {
+      padding: 10px;
+      .widget-head {
+        margin: 0;
+        position: relative;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        a {
+          display: block;
+          padding: 10px;
+        }
+
+        .btn-toggle {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: transparent;
+          border: none;
+          &.active {
+            i {
+              &:before {
+                content: '\f077'; // change to chervon up
+              }
+            }
+          }
+        }
+        // @include responsive(mobile) {
+        //   padding: 20px;
+        // }
+      }
+      .menu {
+        display: block;
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        transition: height 0.3s ease-in-out, opacity 0.1s ease-in-out;
+        &.open {
+          height: auto;
+          visibility: visible;
+          opacity: 1;
+        }
+        .menu-item {
+          a {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

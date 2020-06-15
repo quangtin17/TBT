@@ -1,0 +1,85 @@
+@mixin widget-nav{
+    .widget-nav {
+        padding: 25px 0;
+        .widget-heading {
+           h3 {
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                margin: 0;
+           }
+        }
+        @media (min-width: 768px) {
+            .widget-body {
+                ul {
+                    list-style: none;
+                    padding: 16px 0;
+                    margin: 16px 0;
+                    border-top: solid 1px #ddd;
+                    border-bottom: solid 1px #ddd;
+                    li {
+                        padding: 12px 0;
+                        a {
+                            color: #69696f;
+                            font-size: 16px;
+                            line-height: 23px;
+                        }
+                    }
+                }
+                .create-list {
+                    padding: 16px 0 0;
+                    a {
+                        font-weight: 600;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        @media (max-width: 767px) {
+            .widget-body {
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    li {
+                        border-bottom: solid 1px #dddddd;
+                        padding: 15px 0;
+                        a {
+                            display: block;
+                            position: relative;
+                            font-size: 16px;
+                            line-height: 23px;
+                            color: #444444;
+                            padding: 0 30px 0 0;
+                            transition: all 0.2s ease;
+                            &:after {
+                                content: '\f054';
+                                font-family: 'Font Awesome 5 Pro';
+                                position: absolute;
+                                right: 0;
+                                top: 50%;
+                                transform: translate(0, -50%);
+                                color: #d34f1d;
+                                font-weight: 300;
+                            }
+                            &:hover {
+                                color: #d34f1d;
+                            }
+                        }
+                        &:last-child {
+                            border: none;
+                        }
+                    }
+                }
+                .create-list {
+                    a {
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 23px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

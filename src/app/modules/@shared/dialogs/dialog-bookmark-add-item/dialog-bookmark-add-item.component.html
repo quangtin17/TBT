@@ -1,0 +1,21 @@
+<div class="dialog-container center-dialog">
+  <div class="dialog-header container">
+    <h3>Add Bookmark</h3>
+    <button class="btn-close" (click)="closeDialog({})">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body container">
+    <div class="widget-body">
+      <p *ngIf="!bookmarkList || bookmarkList.length==0" class="no-list">You have not created a list yet</p>
+      <ul *ngIf="!!bookmarkList && bookmarkList.length>0">
+        <li *ngFor="let item of bookmarkList">
+          <a (click)='addToBookmarkList(item.id)'>{{item.title}}</a>
+        </li>
+      </ul>
+      <div class="create-list mt-3">
+        <a (click)='createNewBookmarkList()'>+ Create a new list</a>
+      </div>
+    </div>
+  </div>
+</div>

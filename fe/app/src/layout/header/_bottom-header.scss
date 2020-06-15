@@ -1,0 +1,14 @@
+%bottom-header {
+    background: var(--white);
+    padding: 20px 0;
+
+    .hammer-menu,
+    .header-search,
+    .user-header {
+        a {
+            color: var(--black);
+            @include fontSize(null, null, 20px, null);
+        }
+    }   
+
+}

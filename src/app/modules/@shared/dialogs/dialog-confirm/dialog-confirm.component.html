@@ -1,0 +1,19 @@
+<div class="dialog-container center-dialog">
+  <div class="dialog-header container">
+    <h4>Confirm</h4>
+    <button class="btn-close" (click)="closeDialog({})">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body container">
+    <p> {{message}} </p>
+    <div class="row">
+      <div class="col-6"> 
+        <button class="btn btn-default btn-submit btn-larger" (click)="submitForm(true)">Confirm</button>
+      </div>
+      <div class="col-6"> 
+        <button class="btn btn-dark btn-submit btn-larger" (click)="submitForm(false)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

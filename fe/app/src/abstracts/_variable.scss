@@ -1,0 +1,29 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --dark: #2C2C3C;
+    --gray: #D8D8D8;
+    --gray-1: #9B9B9B;
+    --gray-2: #F7F7FB;
+    --gray-3: #dddddd;
+    --gray-4: #9194A1;
+    --gray-5: #444444;
+    --gray-6: #5F5D70;
+    --gray-7: #f3f3f3;
+    --yellow: #ffd426;
+    --primary: #D24F1D;
+    --color-link: #D34F1D;
+    --btn-dark: #4A4A4A;
+    --btn-light: #ffffff;
+    --btn-default: #D34F1D;
+    --place-holder: #b3b3b3;
+    --title: #1A1B3A;
+    --form-color: #444444;
+    --place-holder-color: #9B9B9B;
+    --source-sans-pro: "Source Sans Pro",Georgia,sans-serif;
+    --awesome: "Font Awesome 5 Pro";
+    --font-size-default: 14px;
+}
+
+$btn-dark: var(--btn-dark);
+$btn-light: var(--btn-light);

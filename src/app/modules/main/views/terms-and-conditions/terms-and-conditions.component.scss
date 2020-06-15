@@ -1,0 +1,16 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/post-content';
+
+@include nb-install-component() {
+
+    ::ng-deep {
+        @include post-content;
+        .post-content-title {
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+
+.tabs-head {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        border-bottom: solid 1px #E1E0EA;
+        li {
+            display: inline-block;
+            padding: 0 20px;
+            a {
+                opacity: 0.5;	
+                color: #1A1B3A;	
+                @include fontSize (null, null, 14px, null);	
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 1px;	
+                line-height: 18px;
+                padding: 20px 10px;
+                position: relative;
+                display: block;
+                &:before {
+                    bottom: -1px;
+                    left: 0;
+                    content: '';
+                    background-color: var(--primary);
+                    position: absolute;
+                    height: 4px;
+                    width: 100%;
+                    opacity: 0;
+                }
+                &.active {
+                    opacity: 1;
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+                @at-root .small-size#{&} {
+                    text-transform: none;
+                    padding: 0 20px 10px;
+                    &:before {
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.tab-pane {
+    display: none;
+    &.active {
+        display: block;
+    }
+}

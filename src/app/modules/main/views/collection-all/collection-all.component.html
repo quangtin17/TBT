@@ -1,0 +1,54 @@
+<div class="collection-container" *ngIf="htmlData">
+  <k-banner *ngIf="htmlData.banner" [bannerData]="htmlData.banner"></k-banner>
+  <div class="our-collection pt-30 pb-30">
+    <div class="container">
+      <div class="list-view grid-style animation popup"
+        *ngIf="htmlData.list_collections && htmlData.list_collections.length > 0">
+        <div class="row">
+          <div class="col-6 col-md-3" *ngFor="let item of htmlData.list_collections; let first = first">
+            <div class="item">
+              <a href="" class="item-link" [routerLink]="['/travel-inspiration', item.alias]" aria-label="travel"></a>
+              <div class="thumbnail">
+                <div class="thumbnail-inner">
+                  <img [routerLink]="['/travel-inspiration', item.alias]" class="img-mobile" *ngIf="item.img_url_mobile"
+                    [src]="item.img_url_mobile" [alt]="item.alt" />
+                  <img [routerLink]="['/travel-inspiration', item.alias]" class="img-desktop" *ngIf="item.img_url"
+                    [src]="item.img_url" [alt]="item.alt" />
+                  <img [routerLink]="['/travel-inspiration', item.alias]" class="img-noimg"
+                    *ngIf="!item.img_url && !item.img_url_mobile" src="/assets/images/noimage.jpg" [alt]="item.alt" />
+                  <span class="collection-items">
+                    <i class="far fa-book"></i> {{item.total}}
+                  </span>
+                </div>
+              </div>
+              <div class="description">
+                <h3>
+                  <a [routerLink]="['/travel-inspiration', item.alias ]">{{item.name}}</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pagination" *ngIf="htmlData.total_pages && htmlData.total_pages.length > 1">
+          <ul *ngIf="pager.pages && pager.pages.length">
+            <li [ngClass]="{'disabled': pager.currentPage == 1}">
+              <a (click)="getCollectionListData(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled: pager.currentPage == 1}">
+              <a (click)="getCollectionListData(pager.currentPage - 1)">&lt;</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage == page}">
+              <a (click)="getCollectionListData(page)">{{page + 1}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage == pager.totalPages}">
+              <a (click)="getCollectionListData(pager.currentPage + 1)">&gt;</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage == pager.totalPages}">
+              <a (click)="getCollectionListData(pager.totalPages)">Last</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

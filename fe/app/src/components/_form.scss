@@ -1,0 +1,45 @@
+form {
+    .form-group {
+        margin: 0 0 10px;
+    }
+    .form-message {
+        .logo {
+            
+        }
+        p {
+            margin: 0 0 16px;
+            color: #656674;
+            font-size: 14px;	
+            line-height: 21px;
+        }
+    }
+    .form-control {
+        width: 100%;
+        background-color: var(--white);
+        border-radius: 4px;
+        height: 40px;
+        padding: 0 10px;
+        border: solid 1px var(--gray-3  );
+        @include fontSize(null, null, 16px, null);
+        color: var(--form-color);	
+        @include placeholder {
+            color: var(--place-holder);
+        }
+    }
+    .form-action {
+        border: none;
+        width: 100%;
+        border-radius: 4px;
+    }
+    .form-select {
+        select {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 4px;	
+            background-color: var(--white);
+            color: var(--place-holder-color);
+            padding: 0 10px;
+            height: 44px;
+        }
+    }
+}

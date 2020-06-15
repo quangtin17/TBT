@@ -1,0 +1,93 @@
+<div class="journey-container" *ngIf="htmlData">
+
+  <div class="journey-info-container post-content-wrapper pt-25">
+    <div class="container">
+      <div class="post-content pb-30  ">
+        <div class="post-content-tags">
+          <ul>
+            <li *ngIf="htmlData.country">
+              <a *ngIf="!htmlData.redirect_the_search_page" [routerLink]="['/all-countries', htmlData.country]">{{
+                htmlData.country
+              }}</a>
+              <a *ngIf="htmlData.redirect_the_search_page && htmlData.type === 'experiences'" [routerLink]="['/search']"
+                [queryParams]="{type: 'experiences', country: htmlData.country_id}">{{
+                htmlData.country
+              }}</a>
+              <a *ngIf="htmlData.redirect_the_search_page && htmlData.type !== 'experiences'" [routerLink]="['/search']"
+                [queryParams]="{type: 'stories', country:htmlData.country_id}">{{
+                htmlData.country
+              }}</a>
+            </li>
+            <li *ngIf="
+            htmlData.sub_country &&
+            htmlData.sub_country !== 'Singapore'
+          ">
+              <span>{{ htmlData.sub_country }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="post-content-title">
+          <h1>{{ htmlData.title }}</h1>
+          <p>{{ htmlData.organisation }}</p>
+        </div>
+
+        <div class="post-content-description" *ngIf="htmlData.body">
+          <div class="post-item body-item" *ngFor="let item of htmlData.body" [ngSwitch]="item.type">
+            <div *ngSwitchCase="'free_text'" [innerHTML]="item.value"></div>
+            <k-video-youtube *ngSwitchCase="'embedded_video'" [youtubeVideo]="item.video"></k-video-youtube>
+            <k-difference-you-make *ngSwitchCase="'difference_you_make'" [differenceYouMake]="item">
+            </k-difference-you-make>
+          </div>
+        </div>
+        <!-- Info -->
+        <div class="infor-wrapper">
+          <div class="row">
+            <!-- Amenities -->
+            <div class="col-md-12"
+              *ngIf="htmlData.amenities && htmlData.amenities.list && htmlData.amenities.list.length > 0">
+              <div class="infor-group line-top-mb">
+                <k-story-amenities [amenities]="htmlData.amenities"></k-story-amenities>
+              </div>
+            </div>
+            <div class="col-md-12" *ngIf="htmlData.info">
+              <div class="infor-group line-top">
+                <k-story-info [info]="htmlData.info"></k-story-info>
+              </div>
+            </div>
+            <div class="col-md-12"
+              *ngIf="htmlData.about_host && htmlData.about_host.host && htmlData.about_host.host.name">
+              <div class="infor-group about-the-host line-top">
+                <k-story-host [aboutHost]="htmlData.about_host" [ExperienceAboutHost]="htmlData"></k-story-host>
+              </div>
+            </div>
+            <div class="col-md-12" *ngIf="htmlData.traveller_notes">
+              <div class="infor-group line-top">
+                <k-story-travellver-note [travellverNote]="htmlData.traveller_notes"></k-story-travellver-note>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="group-btn text-center hide-on-mobile" *ngIf="hasEnquiry">
+          <button class="btn-enquiry" (click)="openEnquiryDialog()">
+            <span>Send an enquiry</span>
+          </button>
+        </div>
+        <p class="mt-20">Let's travel...in pictures. Tap on our <a (click)="onScrollToTarget()"
+            class="btn-scroll-top">photo gallery</a> to see
+          what your next
+          holiday could look
+          like.
+        </p>
+        <k-related-topic *ngIf="
+          htmlData.list_tags &&
+          htmlData.list_tags.length > 0
+          " [list]="htmlData.list_tags"></k-related-topic>
+      </div>
+    </div>
+  </div>
+  <k-story-forum [storyId]="idInfo"></k-story-forum>
+  <k-related-stories-custom *ngIf="htmlData.related_stories" [relatedStoriesInput]="htmlData.related_stories"
+    [relatedStoriesType]="htmlData">
+  </k-related-stories-custom>
+</div>

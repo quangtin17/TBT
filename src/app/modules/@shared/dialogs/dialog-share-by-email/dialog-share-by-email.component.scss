@@ -1,0 +1,91 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/form';
+
+:host {
+  display: block;
+  max-width: 90vw;
+}
+
+@include nb-install-component() {
+  p {
+    margin-top: initial;
+  }
+
+  .description {
+    word-break: break-all;
+  }
+
+  .find-more {
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  .dialog-container {
+    background-color: white;
+    position: relative;
+
+    padding: 20px;
+    width: 420px !important;
+    margin-bottom: 20px;
+
+    @media (max-width: 500px) {
+      max-width: 90vw !important;
+    }
+
+    .dialog-footer {
+      padding-top: 10px;
+      border-top: 1px solid #dddddd;
+    }
+
+    .container {
+      padding: 0;
+    }
+
+    .form-area {
+      height: 80px !important;
+    }
+  }
+
+  .dialog-header {
+    h2 {
+      text-align: center;
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0;
+      padding: 5px 0 15px;
+    }
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-weight: 600;
+
+    i {
+      color: #d34f1d;
+      font-size: 25px;
+      font-weight: 300;
+    }
+  }
+
+  .btn-submit {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #d34f1d;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+    color: white;
+    text-transform: uppercase;
+    height: 40px;
+    font-size: 14px !important;
+    line-height: 40px !important;
+  }
+}

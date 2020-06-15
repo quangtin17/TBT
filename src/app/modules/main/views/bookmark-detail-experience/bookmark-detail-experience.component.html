@@ -1,0 +1,41 @@
+<div class="collection-experiences-container">
+  <div class="webform pb-25">
+    <nb-radio-group class="d-flex">
+      <nb-radio (valueChange)="goToRelative('stories')"> Show stories </nb-radio>
+      <nb-radio [checked]='true'> Show experiences </nb-radio>
+    </nb-radio-group>
+  </div>
+
+  <div class="row" *ngIf="!!bookmark_lists && bookmark_lists.length > 0">
+    <div class="col-6 col-md-3" *ngFor="let item of bookmark_lists; let first = first">
+      <k-spotlight-item [item]="item" (onBookmarkedAnItem)="unBookMarkItem($event)"></k-spotlight-item>
+    </div>
+  </div>
+  <div class="row align-items-center no-data" *ngIf="!!bookmark_lists && bookmark_lists.length === 0">
+    <div class="col-12 text-center">
+      <p>No bookmarked experience yet!</p>
+    </div>
+  </div>
+
+  <!-- Paging with start page is 0 - Best Drupal -->
+  <div class="row pagination" *ngIf="!!pager && pager.pages && pager.pages.length > 1">
+    <ul>
+      <li [ngClass]="{ disabled: pager.currentPage == 0 }">
+        <a disabled (click)="getBookmarkByAlias(0)">First</a>
+      </li>
+      <li [ngClass]="{ disabled: pager.currentPage == 0 }">
+        <a (click)="getBookmarkByAlias(pager.currentPage - 1)">&lt;</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage == page }">
+        <a (click)="getBookmarkByAlias(page)">{{ page + 1}}</a>
+      </li>
+      <li [ngClass]="{ disabled: pager.currentPage == pager.totalPages - 1 }">
+        <a (click)="getBookmarkByAlias(pager.currentPage + 1)">&gt;</a>
+      </li>
+      <li [ngClass]="{ disabled: pager.currentPage == pager.totalPages - 1 }">
+        <a (click)="getBookmarkByAlias(pager.totalPages - 1)">Last</a>
+      </li>
+    </ul>
+  </div>
+
+</div>

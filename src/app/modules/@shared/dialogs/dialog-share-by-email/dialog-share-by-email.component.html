@@ -1,0 +1,57 @@
+<div class="dialog-container center-dialog">
+  <div class="dialog-header container">
+    <h2>Email a friend</h2>
+    <button class="btn-close" (click)="closeDialog({})">
+      <i class="far fa-times"></i>
+    </button>
+  </div>
+  <div class="dialog-body container">
+    <form class="form share-form" [formGroup]="shareForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <!-- <label for="">To</label> -->
+        <input type="email" formControlName="to" nbInput fullWidth placeholder="To" class="form-control"
+          aria-label="Email To" [ngClass]="{'error': submitted && f.to.errors}" autocomplete=null>
+        <div *ngIf="submitted && f.to.errors" class="error-messages">
+          <span class="form-text error" *ngIf="f.to.errors.required">Please input email !</span>
+          <span class="form-text error" *ngIf="f.to.errors.email">Please input valid email !</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- <label for="">From</label> -->
+        <input type="email" formControlName="from" nbInput fullWidth placeholder="From" class="form-control"
+          aria-label="Email From" [ngClass]="{'error': submitted && f.from.errors}" autocomplete=null
+          (input)="onUpdateEmailFrom($event)">
+        <div *ngIf="submitted && f.from.errors" class="error-messages">
+          <span class="form-text error" *ngIf="f.from.errors.required">Please input email !</span>
+          <span class="form-text error" *ngIf="f.from.errors.email">Please input valid email !</span>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="">Subject</label>
+        <input type="text" formControlName="subject" nbInput fullWidth placeholder="Subject" class="form-control"
+          aria-label="Subject" [ngClass]="{'error': submitted && f.subject.errors}">
+        <div *ngIf="submitted && f.subject.errors" class="error-messages">
+          <span class="form-text error" *ngIf="f.subject.errors.required">Please input subject !</span>
+        </div>
+      </div> -->
+      <div class="description">
+        <p>Hi!</p>
+        <p>The story, {{title}}, has been shared with you by
+          {{descriptionEmail}}.</p>
+        <p>Check it out at {{currentHref}} </p>
+      </div>
+      <div class="form-group">
+        <!-- <label for="">Message</label> -->
+        <textarea formControlName="note" rows="4" nbInput fullWidth placeholder="Add your personal message here"
+          class="form-area" aria-label="Message">
+          </textarea>
+      </div>
+      <div class="find-more">
+        <p>You can find more stories at https://travel.ourbetterworld.org.</p>
+      </div>
+    </form>
+  </div>
+  <div class="dialog-footer container">
+    <button class="btn btn-submit" (click)="submitForm()">Send</button>
+  </div>
+</div>

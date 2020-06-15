@@ -1,0 +1,37 @@
+<div class="webform">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-message text-center">
+      <div class="logo">
+        <a href="#" class="logo-tbt">
+          <img src="/assets/images/logo-tbt.svg" alt="">
+        </a>
+      </div>
+      <p>Sign up to read, save the stuff you love to your bookmarks, and chat with a community of like-minded travellers
+      </p>
+    </div>
+    <div class="social-login">
+      <a class="social-login-fb d-block" (click)="signInWithFB()">
+        <i class="fab fa-facebook-square"></i>
+        Continue with Facebook
+      </a>
+      <a class="social-login-tw d-block" (click)="signInWithTwitter()">
+        <i class="fab fa-twitter"></i>
+        Continue with Twitter</a>
+      <a class="social-login-gg d-block" (click)="signInWithGoogle()">
+        <i class="fab fa-google"></i>
+        Continue with Google</a>
+    </div>
+    <div class="divine">
+      <span>OR</span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Password">
+    </div>
+    <div class="form-group pt-10">
+      <button class="btn btn-default btn-larger">Sign up</button>
+    </div>
+  </form>
+</div>

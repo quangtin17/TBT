@@ -1,0 +1,135 @@
+@mixin travel-inspiration{
+    .travel-inspiration {
+        .list-view {
+            @media (max-width: 768px) {
+                .col-md-6 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
+            .item {
+                .description {
+                    .category-type {
+                        margin: 0 0 5px;
+                        a {
+                            color: #9a9e3a;
+                            font-size: 12px;
+                            line-height: 12px;
+                            text-transform: uppercase;
+                        }
+                    }
+                    .short-desc {
+                        @media (max-width: 767px) {
+                            display: none;
+                        }
+                    }
+                    h3 {
+                        font-weight: 600;
+                        margin: 0;
+                        
+                    }
+                    p {
+                        color: #69696f;
+                        font-size: 16px;
+                        line-height: 20px;
+                        margin: 0;
+                    }
+                    .tags {
+                        ul {
+                            display: inline-block;
+                            padding: 0;
+                            li {
+                                &:last-child {
+                                    padding-right: 0;
+                                }
+                            }
+                        }
+                        .post-date {
+                            display: inline-block;
+                            p {
+                                margin: 0;
+                                color: #b3b3b3;
+                                font-size: 12px;
+                                line-height: 17px;
+                                &:before {
+                                    content: '/';
+                                    padding: 0 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.spotlight {
+                    margin: 0 0 24px;
+                    .thumbnail {
+                        margin-bottom: 13px;
+                    }
+                    .description {
+                        .category-type {
+                            a {
+                                font-size: 14px;
+                                line-height: 16px;
+                            }
+                        }
+                        h3 {
+                            font-size: 24px;
+                            line-height: 1;
+                            margin: 0 0 5px;
+                            font-weight: 600;
+                            a {
+                                font-size: 24px;
+                                line-height: 28px;
+                            }
+                            @media (max-width: 768px) {
+                                font-size: 18px;
+                                a {
+                                    font-size: 18px;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                        .tags {
+                            padding: 10px 0 0px;
+                        }
+                    }
+                }
+                &:not(.spotlight){
+                    margin: 0 0 24px;
+                    .thumbnail {
+                        width: 190px;
+                        @media (max-width: 600px) {
+                            width: 120px;
+                        }
+                    } 
+                    .description {
+                        padding: 0 0 0 15px;
+                        width: calc(100% - 190px);
+                        @media (max-width: 600px) {
+                            padding: 0 0 0 10px;
+                            width: calc(100% - 120px);
+                        }
+                        h3 {
+                            margin: 0 0 4px;
+                            font-size: 18px;
+                            line-height: 1;
+                            a {
+                                font-size: 18px;
+                                line-height: 25px;
+                            }
+                            @media (max-width: 768px) {
+                                font-size: 14px;
+                                a {
+                                    font-size: 14px;
+                                    line-height: 17px;
+                                }
+                            }
+                        }
+                    .tags {
+                            padding: 10px 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

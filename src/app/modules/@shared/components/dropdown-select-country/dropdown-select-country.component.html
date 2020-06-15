@@ -1,0 +1,14 @@
+<div class="select-btn" (click)="openDropdown()" [ngClass]="{'active': showDropdown}">
+  <span>Select a country</span>
+</div>
+
+<div class="dropdown-container" [ngClass]="{'open': showDropdown}">
+  <div class="overlay" (click)="closeDropdown()"></div>
+  <ul class="list-countries">
+    <li class="item-country" *ngFor="let item of listCountries">
+      <a class="country" (click)="gotoCountry(item.alias)">{{item.name}}
+      </a>
+    </li>
+  </ul>
+
+</div>

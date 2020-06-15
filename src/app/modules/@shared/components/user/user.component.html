@@ -1,0 +1,45 @@
+<a class="btn btn-user" *ngIf="!user && OAuthURL" (click)="clickUserBtn()">
+  <i class="far fa-user"></i>
+</a>
+
+<div class="user-group" *ngIf="!user && OAuthURL">
+  <ul>
+    <li class="login" *ngIf="OAuthURL">
+      <a (click)="clickLoginBtn()">Login</a>
+    </li>
+    <li class="signup">
+      <a (click)="clickRegisterBtn()">Sign up</a>
+    </li>
+  </ul>
+</div>
+
+<div class="user-container" *ngIf="user" (click)="clickUserControl()" #userContainer>
+  <div class="user-picture"
+    [style.background-image]="user.picture ? 'url('+user.picture+')' : 'url(\'../../../../../assets/images/user.svg\')'">
+    <img class="image-hide" [src]="!user.picture ? '../../../../../assets/images/user.svg' : user.picture"
+      [alt]="user.firstName" />
+  </div>
+  <div class="user-toggle" [ngClass]="{'open': openUserPanel}">
+    <div class="user-name">
+      <p *ngIf="user.firstName">{{user.firstName}} {{user.lastName}}</p>
+      <p *ngIf="!user.firstName">{{user.username}}</p>
+    </div>
+    <div class="user-action">
+      <ul>
+        <li *ngIf="user.id">
+          <a (click)="clickMyAccountSettingBtn()" style="cursor: pointer;">My account
+            settings</a>
+        </li>
+        <li>
+          <a [routerLink]="[ '/bookmark-list' ]">My bookmarks</a>
+        </li>
+      </ul>
+      <div class="logout">
+        <button class="btn-logout" (click)="clickLogout()">
+          <span>Log out</span>
+          <i class="fal fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

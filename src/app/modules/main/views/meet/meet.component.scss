@@ -1,0 +1,178 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/post-content';
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/community-forum-comment';
+
+@include nb-install-component() {
+  .meet-group {
+    background-color: #f8f4ee;
+
+    @media (min-width: 768px) {
+      padding: 35px;
+
+      &:after {
+        content: '';
+        clear: both;
+        display: block;
+      }
+
+      .meet-group-img {
+        width: 50%;
+        float: left;
+        padding: 0 15px 0;
+
+        img {
+          width: 100%;
+
+
+        }
+      }
+
+      .meet-group-infor {
+        float: left;
+        width: 50%;
+        padding: 0 15px;
+        text-align: left !important;
+
+        h3 {
+          font-size: 24px;
+          line-height: 23px;
+          color: #1a1b3a;
+          margin: 0 0 8px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 15px;
+          color: #1a1b3a;
+        }
+      }
+
+      .meet-group-desc {
+        float: left;
+        width: 50%;
+        padding: 40px 15px 0;
+        text-align: left;
+
+        p {
+          color: #69696f;
+          font-size: 16px;
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      margin: 0 -15px 8px;
+      padding: 16px 20px;
+
+      .meet-group-img {
+        img {
+          width: 100%;
+          max-width: 350px;
+        }
+      }
+    }
+
+    &-infor {
+      h3 {
+        margin: 4px 0;
+        font-size: 16px;
+        line-height: 23px;
+        color: #1a1b3a;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1a1b3a;
+      }
+    }
+
+    &-desc {
+      padding: 20px 0 0;
+
+      p {
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .float-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 60px;
+    padding: 5px 0;
+    z-index: 999;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .action-container {
+      padding: 0 20px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+    }
+
+    .btn-bookmark {
+      height: 50px;
+      width: 50px;
+      background-color: #ffffff;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+      color: #9a9e3a;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .btn-enquiry {
+      height: 50px;
+      width: 260px;
+      border-radius: 28px;
+      background-color: #9a9e3a;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+
+      span {
+        color: white;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .contributor {
+    .user-list {
+      li {
+        &::before {
+          content: none;
+        }
+
+        padding: 0;
+        margin: 0;
+        line-height: inherit;
+
+        a {
+          color: #3dcc6d;
+        }
+      }
+    }
+  }
+
+  ::ng-deep {
+    // post content
+    @include post-content;
+    @include comment;
+    @include list-view;
+  }
+}

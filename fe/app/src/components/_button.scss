@@ -1,0 +1,40 @@
+.btn {
+    height: 42px;
+    line-height: 42px;
+    padding: 0 30px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    
+    &-rounded {
+        border-radius: 42px;
+    }
+    &-dark {
+        background-color: $btn-dark;
+        @include fontSize(null, null, 12px, null);
+        color: var(--white);
+    }
+    &-light {
+        background-color: $btn-light;
+        @include fontSize(null, null, 12px, null);
+        color: var(--black);
+    }
+    &-default {
+        background-color: var(--btn-default);
+        @include fontSize(null, null, 16px, null);
+        color: var(--white);
+    }
+    &-primary {
+        background-color: transparent;
+        border: solid 1px #979797;
+        @include fontSize(null, null, 12px, null);
+        letter-spacing: 1px;
+        color: var(--black);
+    }
+    &-larger {
+        width: 100%;
+        display: block;
+    }
+}

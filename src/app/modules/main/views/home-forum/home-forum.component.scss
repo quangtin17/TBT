@@ -1,0 +1,45 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/community-forum';
+
+@include nb-install-component() {
+  ::ng-deep {
+    .community-forum {
+      .create-topic {
+        padding: 20px 0;
+      }
+      .topic-desktop {
+        margin: 50px 0 0;
+        @media (max-width: 767px) {
+          display: none;
+        }
+        table {
+          width: 100%;
+          tr {
+            th {
+              padding: 10px 30px;
+              font-size: 24px;
+              line-height: 24px;
+              font-weight: 600;
+            }
+          }
+          tr {
+            td {
+              vertical-align: top;
+              padding: 14px 30px;
+              font-size: 18px;
+              line-height: 23px;
+              border-top: solid 1px #DCDCDF;
+              a {
+                font-size: 18px;
+                line-height: 23px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

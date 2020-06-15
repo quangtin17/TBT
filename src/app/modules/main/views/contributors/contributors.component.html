@@ -1,0 +1,28 @@
+<div class="contributor pt-20 pb-20" *ngIf="
+listContributors &&
+listContributors.length > 0">
+  <div class="contributor-wrap">
+    <div class="contributor-list" *ngFor="let contributor of listContributors">
+      <div class="role" *ngIf="contributor.role">{{ contributor.role }}</div>
+      <div class="users" *ngIf="contributor.users && contributor.users.length > 0">
+        <ul class="user-list">
+          <li class="user-item" *ngFor="
+                let user of contributor.users;
+                let last = last;
+                let first = first;
+                let i = index
+              ">
+            <span *ngIf="!first && !last">,&nbsp;</span>
+            <span *ngIf="i != 0 && last">&nbsp;&#38;&nbsp;</span>
+            <a [href]="user.profile_url" *ngIf="user.profile_url" rel="noreferrer" target="_blank">
+              <span>&nbsp;{{ user.user_name }}&nbsp;</span>
+            </a>
+            <span *ngIf="!user.profile_url">
+              <span>&nbsp;{{ user.user_name }}&nbsp;</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

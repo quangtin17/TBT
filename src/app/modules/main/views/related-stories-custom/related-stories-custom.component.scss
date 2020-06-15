@@ -1,0 +1,68 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@include nb-install-component() {
+  .align-title {
+    @media (min-width: 576px) {
+      height: 34px;
+      overflow: hidden;
+    }
+
+    @media (min-width: 767px) {
+      height: 44px;
+      overflow: hidden;
+    }
+  }
+
+  ::ng-deep {
+    .other-inspired-articles {
+      .block-title {
+        padding: 30px 0 10px;
+        text-align: left;
+
+        h3 {
+          color: #1a1b3a;
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 600;
+        }
+      }
+
+      .list-view {
+        .tags ul li {
+
+          a,
+          span {
+            color: #9a9e3a;
+
+            @media (max-width: 350px) {
+              font-size: 10px;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+
+  .item {
+    position: relative;
+
+    .item-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .tags,
+    .category-name {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+    }
+  }
+}

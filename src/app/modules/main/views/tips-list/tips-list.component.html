@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let tip of tipsList">
+    <!-- <h3 *ngIf="tip.title">{{ tip.title }}</h3> -->
+    <div *ngIf="tip.description" [innerHTML]="tip.description"></div>
+  </li>
+</ul>

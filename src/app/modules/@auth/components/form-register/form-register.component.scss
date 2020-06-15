@@ -1,0 +1,73 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/form';
+@import '../../../../../assets/scss/components/social-login';
+
+::ng-deep {
+    nb-layout-column{ 
+        background: #ffffff;
+        .join-our-company {
+            @media (min-width: 769px) {
+              padding-left: 15px;
+            }
+          
+            h3 {
+              color: #3B3B3B;
+              font-size: 20px;
+              font-weight: bold;
+              line-height: 30px;
+              margin: 0 0 24px;
+              text-align: center;
+            }
+          
+            .community-member {
+              >p {
+                color: #3B3B3B;
+                font-size: 16px;
+                line-height: 24px;
+                text-align: center;
+                margin: 0;
+              }
+          
+              ul {
+                padding-left: 15px;
+          
+                li {
+                    list-style: none;
+                    margin-top: 16px;
+                    color: #6B6B6B;
+                    font-size: 16px;
+                    line-height: 24px;
+                    padding-left: 60px;
+                    position: relative;
+                    max-width: 400px;
+                    margin: 16px auto 0;
+          
+                    .icon {
+                        width: 48px;
+                        height: 48px;
+                        border: solid 1px #ccc;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        text-align: center;
+                        line-height: 46px;
+                        font-size: 20px;
+                    }
+                }
+              }
+            }
+          
+            .img {
+              text-align: center;
+              margin-bottom: 32px;
+          
+              img {
+                border-radius: 50%;
+              }
+            }
+        }
+    }
+}

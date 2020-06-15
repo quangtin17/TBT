@@ -1,0 +1,34 @@
+<div class="menu-dropdown-container" *ngIf="MenuItems && MenuItems.length > 0">
+  <div class="nav-widget" *ngFor="let menu of MenuItems"
+    [ngClass]="(menu.title === 'Contact Us') ? 'contact-item' : (menu.title === 'FAQ') ? 'faq-item' : ''">
+    <div class="widget-head">
+      <a *ngIf="menu.relative && !menu.external  && !menu.type" [routerLink]="[ menu.relative ]"
+        (click)="closeMenu()"><span>{{menu.title}}</span></a>
+      <a *ngIf="menu.relative && menu.external" [href]="menu.relative"
+        [target]="'_blank'" rel="noreferrer"><span>{{menu.title}}</span></a>
+      <a *ngIf="menu.relative && !menu.external  && menu.type === 'stories'" [routerLink]="[ menu.relative ]"
+        [queryParams]="{type: menu.type}" (click)="closeMenu()"><span>{{menu.title}}</span></a>
+      <a *ngIf="menu.relative && !menu.external  && menu.type === 'experiences'" [routerLink]="[ menu.relative ]"
+        [queryParams]="{type: menu.type}" (click)="closeMenu()"><span>{{menu.title}}</span></a>
+      <button aria-label="btn-toggle" class="btn-toggle" [ngClass]="{'active': !menu.expanded}" *ngIf="menu.below && menu.below.length > 0"
+        (click)="toggleMenu(menu)">
+        <i class="far fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <ul class="menu" [ngClass]="{'open': !menu.expanded}" *ngIf="menu.below && menu.below.length > 0">
+      <li class="menu-item" *ngFor="let item of menu.below">
+        <a *ngIf="!item.country && !item.story_type && !item.activity" [routerLink]="[ item.relative ]"
+          (click)="closeMenu()"><span>{{item.title}}</span></a>
+        <a *ngIf="item.type && item.country" [routerLink]="[ item.relative ]"
+          [queryParams]="{type: item.type, country: item.country}" (click)="closeMenu()"><span>{{item.title}}</span></a>
+        <a *ngIf="item.story_type && item.type === 'stories'" [routerLink]="[ item.relative ]"
+          [queryParams]="{type: item.type, story_type: item.story_type}"
+          (click)="closeMenu()"><span>{{item.title}}</span></a>
+        <a *ngIf="item.activity && item.type === 'experiences'" [routerLink]="[ item.relative ]"
+          [queryParams]="{type: item.type, activity: item.activity}"
+          (click)="closeMenu()"><span>{{item.title}}</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="community-forum">
+  <div class="container">
+    <div class="community-forum-title text-center">
+      <h3>Community Forum</h3>
+      <p>Have a question, or a travel experience you'd like to share? <br> Join our community of travellers for the best
+        tips and recommendations!</p>
+    </div>
+    <div class="topic hide-desktop">
+      <div class="topic-title">
+        <h3>Topics</h3>
+      </div>
+      <div class="topic-wrapper" *ngIf="htmlTopicData && htmlTopicData.length > 0">
+        <div class="topic-item" *ngFor="let topic of htmlTopicData">
+          <div class="topic-item-desc">
+            <p>
+              <a href="{{ environmentBaseUrl }}/topic/{{ topic.tid }}" rel="noreferrer"
+                target="_blank">{{ topic.titleRaw }}</a>
+            </p>
+          </div>
+          <div class="topic-item-action">
+            <ul>
+              <li>
+                <i class="fal fa-comment"></i> {{ topic.postcount }} Replies
+              </li>
+              <!-- <li><i class="fal fa-eye"></i> {{ topic.viewcount }}</li> -->
+              <li><i class="fal fa-thumbs-up"></i> {{ topic.votes }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="topic-desktop hide-mb" *ngIf="htmlTopicData && htmlTopicData.length > 0">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <th width="80%">
+            Topic
+          </th>
+          <th class="text-center">
+            Replies
+          </th>
+          <th class="text-center">
+            Votes
+          </th>
+        </tr>
+        <tr *ngFor="let topic of htmlTopicData">
+          <td>
+            <div class="topic-item-desc">
+              <p>
+                <a href="{{ environmentBaseUrl }}/topic/{{ topic.tid }}" rel="noreferrer"
+                  target="_blank">{{ topic.titleRaw }}</a>
+              </p>
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="topic-action">
+              {{ topic.postcount }}
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="topic-action">
+              {{ topic.votes }}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="under-topic">
+      <div class="topic-item mt-20" *ngIf="!htmlTopicData">
+        <p class="mb-0 text-center">
+          There are no ongoing discussions.
+          <br />
+          How about starting one?
+        </p>
+      </div>
+
+      <div class="create-topic text-center">
+        <a href="{{ environmentBaseUrl }}/compose?cid=2" rel="noreferrer" class="btn btn-default btn-rounded medium"
+          target="_blank">CREATE A
+          NEW
+          TOPIC</a>
+      </div>
+      <div class="link-to-forum">
+        <a href="https://forum.ourbetterworld.org/category/2/the-better-traveller" rel="noreferrer"
+          target="_blank">Visit the Forum <i class="fal fa-long-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

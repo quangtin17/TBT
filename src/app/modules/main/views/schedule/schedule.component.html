@@ -1,0 +1,10 @@
+<div class="timeline-item-date">
+  <p>{{ timeline.day }}</p>
+</div>
+<div class="timeline-item">
+  <div class="timeline-item-list" *ngFor="let schedule of timeline.events" [ngSwitch]="schedule.type">
+    <k-video-youtube *ngSwitchCase="'embedded_video'" [youtubeVideo]="schedule.video"></k-video-youtube>
+    <k-schedule-single *ngSwitchCase="'single_schedule'" [event]="schedule"></k-schedule-single>
+    <div *ngSwitchCase="'free_text'" [innerHtml]="schedule.value"></div>
+  </div>
+</div>

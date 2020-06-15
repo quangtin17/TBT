@@ -1,0 +1,66 @@
+<div class="other-inspired-articles pb-30">
+  <div class="container">
+    <div class="block-title larger-size" *ngIf="relatedStories.description" [innerHTML]="relatedStories.description">
+    </div>
+    <div class="list-view grid-style" *ngIf="relatedStories.list_stories && relatedStories.list_stories.length > 0">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3" *ngFor="let item of relatedStories.list_stories">
+          <div class="item">
+            <a class="item-link" *ngIf="item.type === 'experiences' && !item.redirect_to_journey"
+              [routerLink]="['/experience' , item.alias]" aria-label="experience">
+            </a>
+            <a class="item-link" *ngIf="item.type !== 'experiences' && item.redirect_to_journey"
+              [routerLink]="['/story', item.type, item.alias,'info']" aria-label="story-1">
+            </a>
+            <a class="item-link" *ngIf="item.type === 'experiences' && item.redirect_to_journey"
+              [routerLink]="['/story', 'journey', item.alias,'info']" aria-label="story-2">
+            </a>
+            <a class="item-link" *ngIf="item.type !== 'experiences' && !item.redirect_to_journey"
+              [routerLink]="['/story', item.type, item.alias]" aria-label="story-3">
+            </a>
+            <div class="thumbnail">
+              <div class="thumbnail-inner">
+                <img [src]="item.img_url" [alt]="item.title" />
+                <k-bookmark-btn [item]="item" [btnType]="'home'"></k-bookmark-btn>
+                <!-- <button class="bookmark" [ngClass]="{ bookmarked: item.bookmarked }" (click)="bookmark(item)">
+                  <i class="far fa-bookmark"></i>
+                </button> -->
+              </div>
+            </div>
+            <div class="description">
+              <div class="category-name">
+                <a *ngIf="item.type" [routerLink]="['/search']"
+                  [queryParams]="{ type: 'stories', story_type: item.type }">{{ item.type_title }}</a>
+              </div>
+              <h3 class="align-title">
+                {{item.title}}
+              </h3>
+              <div class="tags">
+                <ul>
+                  <li *ngIf="item.country">
+                    <a *ngIf="item.redirect_the_search_page" [routerLink]="['/search']"
+                      [queryParams]="{ type: 'stories', country: item.country_id }">{{ item.country }}</a>
+                    <a *ngIf="!item.redirect_the_search_page"
+                      [routerLink]="['/all-countries', item.country]">{{ item.country }}</a>
+                  </li>
+                  <li *ngIf="item.sub_country && item.sub_country !== 'Singapore'">
+                    <span>{{ item.sub_country }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="group-btn text-center pt-10" *ngIf="relatedStoriesType && relatedStoriesType.type !== 'experiences'">
+        <a [routerLink]="['/search']" [queryParams]="{ type: 'stories' }" class="btn btn-green btn-rounded medium">View
+          more
+          stories </a>
+      </div>
+      <div class="group-btn text-center pt-10" *ngIf="relatedStoriesType && relatedStoriesType.type === 'experiences'">
+        <a [routerLink]="['/search']" [queryParams]="{ type: 'experiences' }"
+          class="btn btn-green btn-rounded medium">SEE MORE EXPERIENCES</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+<!-- <div class="subscribe gray-light-bg pt-30 pb-30">
+  <div class="container">
+    <div class="block-title text-center">
+      <h3>Get inspired</h3>
+      <p>Curious as to how to be a better traveller? <br>
+        Sign up for ideas for your next travel adventure!</p>
+    </div>
+    <div class="webform pt-20">
+      <form action="">
+        <div class="form-group">
+          <input type="text" class="form-control text-center" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default form-action">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+<k-form-subscribe></k-form-subscribe>
+
+<div class="footer pt-30 pb-30">
+  <div class="container">
+    <div class="footer-row" *ngIf="MenuItems && MenuItems.length > 0">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="about-obw pb-30">
+            <div class="row">
+              <div class="col-12">
+                <div class="logo">
+                  <a href="https://www.ourbetterworld.org" rel="noreferrer" aria-label="Link to Our Better World page"
+                    target="_blank">
+                    <img src="../../../../../assets/images/logo-obw-white.svg" alt="OBW Logo"></a>
+                </div>
+                <p>We tell stories of everyday people doing good in Asia, to inspire action. Through The Better
+                  Traveller, you can dive into our travel stories and share ideas on how to make a difference on the go.
+                </p>
+                <div class="share">
+                  <a href="https://www.facebook.com/ourbetterworld.org" aria-label="Facebook" rel="noreferrer"
+                    target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://twitter.com/OBetterWorld" target="_blank" rel="noreferrer" aria-label="Twitter"><i
+                      class="fab fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/ourbetterworld/" target="_blank" rel="noreferrer"
+                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.youtube.com/channel/UCEURClhcOnBgpgUhNseA-4w?sub_confirmation=1" rel="noreferrer"
+                    aria-label="Youtube"><i class="fab fa-youtube" target="_blank"></i></a>
+                  <a href="https://www.linkedin.com/company/our-better-world/" aria-label="Linkedin" rel="noreferrer"
+                    target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://www.tripadvisor.com/Profile/ourbetterworld" aria-label="Tripadvisor" rel="noreferrer"
+                    target="_blank"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2" *ngFor="let menu of MenuItems|slice:0:5; let i = index; let last = last"
+          [ngClass]="{'d-none': i === 4}">
+          <div class="nav-widget" *ngIf="menu.title !== 'Community Forum'">
+            <div class="widget-head">
+              <a *ngIf="menu.relative && !menu.external  && (menu.title !== 'FAQ' && menu.title !== 'Contact Us') && !menu.type"
+                [routerLink]="[ menu.relative ]">{{menu.title}}</a>
+              <a *ngIf="menu.relative && menu.external  && (menu.title !== 'FAQ' && menu.title !== 'Contact Us')"
+                [href]="menu.relative" [target]="'_blank'" rel="noreferrer">{{menu.title}}</a>
+              <a *ngIf="menu.relative && !menu.external  && menu.type === 'stories'" [routerLink]="[ menu.relative ]"
+                [queryParams]="{type: menu.type}">{{menu.title}}</a>
+              <a *ngIf="menu.relative && !menu.external  && menu.type === 'experiences'"
+                [routerLink]="[ menu.relative ]" [queryParams]="{type: menu.type}">{{menu.title}}</a>
+            </div>
+
+            <ul class="menu" [ngClass]="{'open': !menu.expanded}" *ngIf="menu.below && menu.below.length > 0">
+              <li *ngFor="let item of menu.below">
+                <a *ngIf="!item.country && !item.story_type && !item.activity"
+                  [routerLink]="[ item.relative ]">{{item.title}}</a>
+                <a *ngIf="item.type && item.country" [routerLink]="[ item.relative ]"
+                  [queryParams]="{type: item.type, country: item.country}">{{item.title}}</a>
+                <a *ngIf="item.story_type && item.type === 'stories'" [routerLink]="[ item.relative ]"
+                  [queryParams]="{type: item.type, story_type: item.story_type}">{{item.title}}</a>
+                <a *ngIf="item.activity && item.type === 'experiences'" [routerLink]="[ item.relative ]"
+                  [queryParams]="{type: item.type, activity: item.activity}">{{item.title}}</a>
+              </li>
+            </ul>
+          </div>
+          <!-- <p>{{menu.title}}</p> -->
+          <div class="nav-widget mt-25" *ngIf="i == 3">
+            <div class=" widget-head">
+              <a *ngIf="MenuItems[4].external" rel="noreferrer" [href]="MenuItems[4].relative"
+                target="_blank">{{MenuItems[4].title}}</a>
+              <a *ngIf="!MenuItems[4].external" [routerLink]="MenuItems[4].relative">{{MenuItems[4].title}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-nav mobile-footer">
+      <div class="row">
+        <div class="col-12">
+          <k-menu-dropdown [isHeader]="false"></k-menu-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="copyright pt-30">
+      <div class="row">
+        <div class="col-md-4">
+          <ul>
+            <li *ngFor="let menu of MenuItems|slice:5:9">
+              <a *ngIf="menu.relative && !menu.external" [routerLink]="[ menu.relative ]">
+                <span>{{menu.title}}</span>
+              </a>
+              <a *ngIf="menu.external && menu.relative" rel="noreferrer" [href]="menu.relative" target="_blank">
+                <span>{{menu.title}}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8 copyright-paragraph">
+          <p>Copyright@2019 Our Better World, the digital storytelling initiative of the
+            <a href="https://www.sif.org.sg/" target="_blank" rel="noreferrer">Singapore International
+              Foundation</a>
+            , which
+            brings world communities together to do good. Our Better World is not a travel
+            agent, and
+            we do not get commission from your enquiries or bookings. </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

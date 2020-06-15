@@ -1,0 +1,59 @@
+<div class="country-container" *ngIf="htmlData">
+  <k-banner *ngIf="htmlData.banner" [bannerData]="htmlData.banner"></k-banner>
+
+  <div class="travel-inspiration pt-30 pb-30 pink-bg" *ngIf="htmlData.stories">
+    <div class="container">
+      <div class="block-title" *ngIf="htmlData.stories.description" [innerHTML]="htmlData.stories.description">
+      </div>
+      <div class="list-view list-style" *ngIf="htmlData.stories.list_stories &&
+          htmlData.stories.list_stories.length > 0">
+        <div class="row">
+          <div class="col-lg-6">
+            <k-spotlight-item [item]="htmlTopStoryCountry" [isSpotlight]="true" [isShowCountry]="true"
+              [isShowShortDesc]="true"></k-spotlight-item>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-12" *ngFor="let item of htmlData.stories.list_stories; let first = first">
+                <k-spotlight-item [item]="item" [isSpotlight]="false" [isShowCountry]="true" [isShowShortDesc]="true"
+                  *ngIf="!first"></k-spotlight-item>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group pt-10 text-center" *ngIf="htmlData.stories.total > 6">
+          <a *ngIf="htmlData.country" [routerLink]="['/search']"
+            [queryParams]="{type: 'stories', country: htmlData.country.id}" class="btn btn-green btn-rounded medium">See
+            all
+            stories</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thing-to-do pt-30 pb-30" *ngIf="htmlData.experiences">
+    <div class="container">
+      <div class="block-title" *ngIf="htmlData.experiences.description" [innerHTML]="htmlData.experiences.description">
+      </div>
+      <div class="list-view grid-style" *ngIf="
+          htmlData.experiences.list_experiences &&
+          htmlData.experiences.list_experiences.length > 0
+        ">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-4" *ngFor="let item of htmlData.experiences.list_experiences">
+            <k-spotlight-item [item]="item" [isSpotlight]="false" [isShowCountry]="false" [isShowShortDesc]="true">
+            </k-spotlight-item>
+          </div>
+        </div>
+        <div class="btn-group pt-10 text-center" *ngIf="htmlData.experiences.total > 6">
+          <a [routerLink]="['/search']" [queryParams]=" {type: 'experiences', country: htmlData.country.id}"
+            class="btn btn-green btn-rounded medium">See all
+            experiences</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <k-country-forum *ngIf="htmlData.country" [countryCode]="htmlData.country.code" [countryName]="htmlData.country.name">
+  </k-country-forum>
+</div>

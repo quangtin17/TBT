@@ -1,0 +1,350 @@
+{
+	"product": [
+		{
+			"sale": true,
+			"thumbnail": "images/thumbnail/product.png",
+			"url": "/product-detail-multivendor.html", 
+			"title": "Gạch 6 lỗ tròn",
+			"unit": "bao",
+			"price": "57.000đ",
+			"salePrice": "80.000đ",
+			"saleNumber": "20%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-1.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Xi măng Holcim",
+			"unit": "viên",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-2.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Gạch 3 lỗ vuông",
+			"unit": "viên",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-3.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Cát xây tô - Đồng Nai",
+			"unit": "m3",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-4.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Cát xây tô - Đồng Nai",
+			"unit": "m3",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": true,
+			"thumbnail": "images/thumbnail/product.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Xi măng Holcim",
+			"unit": "bao",
+			"price": "57.000đ",
+			"salePrice": "80.000đ",
+			"saleNumber": "20%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-1.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Gạch 6 lỗ tròn",
+			"unit": "viên",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-2.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Gạch 6 lỗ tròn",
+			"unit": "viên",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-3.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Gạch 6 lỗ tròn",
+			"unit": "viên",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		},
+		{
+			"sale": false,
+			"thumbnail": "images/thumbnail/product-4.png",
+			"url": "/product-detail-multivendor.html",
+			"title": "Gạch 6 lỗ tròn",
+			"unit": "viên",
+			"price": "1.100đ",
+			"salePrice": "800đ",
+			"saleNumber": "100%",
+			"location": "Hồ Chí Minh"
+		}
+		
+	],
+	"partner": [
+		{
+			"thumbnail": "images/thumbnail/store-1.png",
+			"logo": "images/thumbnail/logo-store-1.png",
+			"url": "#",
+			"title": "Xi măng Holcim",
+			"store": "Official Store"
+		},
+		{
+			"thumbnail": "images/thumbnail/store-2.png",
+			"logo": "images/thumbnail/logo-store-2.png",
+			"url": "#",
+			"title": "Thiết bị điện",
+			"store": "Official Store"
+		},
+		{
+			"thumbnail": "images/thumbnail/store-3.png",
+			"logo": "images/thumbnail/logo-store-3.png",
+			"url": "#",
+			"title": "Sơn Dulux",
+			"store": "Official Store"
+		},
+		{
+			"thumbnail": "images/thumbnail/store-1.png",
+			"logo": "images/thumbnail/logo-store-1.png",
+			"url": "#",
+			"title": "Xi măng Holcim",
+			"store": "Official Store"
+		},
+		{
+			"thumbnail": "images/thumbnail/store-2.png",
+			"logo": "images/thumbnail/logo-store-2.png",
+			"url": "#",
+			"title": "Thiết bị điện",
+			"store": "Official Store"
+		},
+		{
+			"thumbnail": "images/thumbnail/store-3.png",
+			"logo": "images/thumbnail/logo-store-3.png",
+			"url": "#",
+			"title": "Sơn Dulux",
+			"store": "Official Store"
+		}
+	],
+	"industry": [
+		{
+			"thumbnail": "images/thumbnail/industry-1.png",
+			"url": "product-list.html",
+			"title": "Vật liệu xây dựng"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-2.png",
+			"url": "product-list.html",
+			"title": "Gỗ"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-3.png",
+			"url": "product-list.html",
+			"title": "Cửa sổ, cửa ra vào"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-4.png",
+			"url": "product-list.html",
+			"title": "Dụng cụ, thiết bị, đồ sắt"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-5.png",
+			"url": "product-list.html",
+			"title": "Trang trí"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-6.png",
+			"url": "product-list.html",
+			"title": "Điện, hệ thống nước"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-7.png",
+			"url": "product-list.html",
+			"title": "Nhà bếp, phòng tắm"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-8.png",
+			"url": "product-list.html",
+			"title": "Tấm lợp, thông gió"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-9.png",
+			"url": "product-list.html",
+			"title": "Cảnh quan, sân vườn"
+		},
+		{
+			"thumbnail": "images/thumbnail/industry-10.png",
+			"url": "product-list.html",
+			"title": "Thuê công cụ lớn"
+		}
+	],
+	"collection": [
+		{
+			"thumbnail": "images/thumbnail/colection-1.png",
+			"url": "#",
+			"title": "Bộ sưu tập sơn",
+			"items": "75 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-2.png",
+			"url": "#",
+			"title": "Bộ sưu mái lợp",
+			"items": "125 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-3.png",
+			"url": "#",
+			"title": "Các bộ tủ bếp đẹp nhất",
+			"items": "200 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-4.png",
+			"url": "#",
+			"title": "Gạch lót nền siêu đẹp",
+			"items": "315 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-6.png",
+			"url": "#",
+			"title": "Thiết bị điện siêu bền",
+			"items": "38 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-8.png",
+			"url": "#",
+			"title": "Cây xanh cho balcon",
+			"items": "112 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-7.png",
+			"url": "#",
+			"title": "Nội thất phòng tắm",
+			"items": "245 sản phẩm"
+		},
+		{
+			"thumbnail": "images/thumbnail/colection-5.png",
+			"url": "#",
+			"title": "Hệ thống chiếu sáng",
+			"items": "49 sản phẩm"
+		}
+	],
+	"support": [
+		{
+			"url": "",
+			"title": "",
+			"postdate": ""
+		}
+	],
+	"banner": [
+		{
+			"thumbnail": "images/banner.png",
+			"url": "#"
+		},
+		{
+			"thumbnail": "images/banner.png",
+			"url": "#"
+		},
+		{
+			"thumbnail": "images/banner.png",
+			"url": "#"
+		}
+	],
+	"guides": [
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		},
+		{
+			"url": "#",
+			"title": "Hướng dẫn lắp đặt và sử dụng Chậu rửa inox",
+			"postDate": "26/03/2019"
+		}
+	],
+	"services": [
+		{
+			"thumbnail": "images/thumbnail/services-category-1.png",
+			"url": "#",
+			"title": "Dịch vụ </br>tư vấn xây dựng",
+			"icon": "fal fa-comment-alt-lines"
+		},
+		{
+			"thumbnail": "images/thumbnail/services-category-2.png",
+			"url": "#",
+			"title": "Tự xây dựng",
+			"icon": "fal fa-shovel"
+		},
+		{
+			"thumbnail": "images/thumbnail/services-category-3.png",
+			"url": "#",
+			"title": "Thiết bị </br>phòng bếp",
+			"icon": "fal fa-chair"
+		},
+		{
+			"thumbnail": "images/thumbnail/services-category-4.png",
+			"url": "#",
+			"title": "Vi kèo, </br>mái nhà",
+			"icon": "fal fa-booth-curtain"
+		}
+	]
+}

@@ -1,0 +1,20 @@
+@import '../../abstracts/function';
+@import '../../abstracts/mixin';
+@import '../../abstracts/variable';
+
+@import 'top-header';
+@import 'bottom-header';
+
+.header {
+    @include responsive(mobile) {
+        .container {
+            max-width: 100%;
+        }
+    }
+    .top-header {
+        @extend %top-header;
+    }
+    .bottom-header {
+        @extend %bottom-header;
+    }
+}

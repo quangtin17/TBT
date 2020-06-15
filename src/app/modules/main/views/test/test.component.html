@@ -1,0 +1,22 @@
+<!-- <div class="container" *ngIf="listCKEditor && listCKEditor.length > 0">
+  <nb-card *ngFor="let item of listCKEditor">
+    <nb-card-header>
+      {{item.title}}
+    </nb-card-header>
+    <nb-card-body>
+      <ckeditor [(ngModel)]="item.editorData" [config]="{ extraPlugins: 'divarea', height: '320' }"></ckeditor>
+      <button (click)="review()">Review</button>
+      <div [innerHTML]='item.editorData'></div>
+    </nb-card-body>
+  </nb-card>
+</div> -->
+
+<span itemprop="image" itemscope itemtype="image/jpeg"> 
+  <link itemprop="url" href="https://static01.nyt.com/images/2019/09/11/us/politics/11dc-storm/merlin_160185513_67fdfae8-7a88-46b2-ac45-cd0894051eb2-articleLarge.jpg"> 
+</span>
+
+<div class="container pt-20 pb-20">
+  <img
+    src="https://static01.nyt.com/images/2019/09/11/us/politics/11dc-storm/merlin_160185513_67fdfae8-7a88-46b2-ac45-cd0894051eb2-articleLarge.jpg"
+    alt="test image">
+</div>

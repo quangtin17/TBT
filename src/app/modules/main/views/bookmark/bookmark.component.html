@@ -1,0 +1,15 @@
+<div class="page-heading small-size bookmark-heading">
+  <div class="container">
+    <div class="row align-items-center item">
+      <div class="col-12 text-left">
+        <h1>My Bookmarks</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="widget-nav">
+  <div class="container">
+    <k-bookmark-list [bookmarkList]="bookmarkList" (onBookmarkListSelected)="bookmarkListSelected($event)"
+      (onCreateBookmarkList)="handleEventCreateBookmarkList($event)"></k-bookmark-list>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.manifesto-device {
+  font-size: 18px;
+  color: #1c1c1c;
+  line-height: 1.42857;
+
+  .green-header {
+    font-size: 28px;
+    font-weight: bold;
+    color: #99a132;
+  }
+
+  .img-responsive {
+    margin-top: 10px;
+  }
+
+  .manifesto-device-list {
+    padding-left: 40px;
+
+    a {
+      color: #337ab7;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.manifesto-footer {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .obw-logo-wrapper {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .obw-logo-hz {
+    padding-bottom: 55.88%;
+  }
+
+  .obw-text {
+    font-size: 16px;
+    color: #717171;
+
+    @media (max-width: 768px) {
+      padding-top: 30px;
+    }
+  }
+}

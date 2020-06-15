@@ -1,0 +1,63 @@
+@import '../../../@theme/styles/themes.scss';
+@import '../../../../../assets/scss/custom/custom.scss';
+
+@import '../../../../../assets/scss/components/button';
+@import '../../../../../assets/scss/components/list-view';
+@import '../../../../../assets/scss/components/community-forum';
+@import '../../../../../assets/scss/components/travel-inspiration';
+
+
+@include nb-install-component() {
+  ::ng-deep {
+    @include list-view;
+    @include travel-inspiration;
+    .align-title {
+      @media (min-width: 576px) {
+        height: 44px;
+        overflow: hidden;
+      }
+    }
+    .align-desc {
+      overflow: hidden;
+      @media (min-width: 768px) {
+        height: 96px;
+      }
+    }
+    .thing-to-do {
+      .list-view {
+        .item {
+          .description {
+            .category-name {
+              margin: 0 0 5px;
+              span {
+                color: #9a9e3a;
+                font-size: 16px;
+                line-height: 18px;
+                font-weight: 400;
+              }
+            }
+            h3 {
+              font-weight: 600;
+              
+            }
+            p {
+              margin: 5px 0 0px;
+              color: #444444;
+              font-size: 16px;
+              line-height: 24px;
+              @media (max-width: 767px) {
+                display: none;
+                &.category-name {
+                  display: block;
+                }
+              }
+            }
+            .tags {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

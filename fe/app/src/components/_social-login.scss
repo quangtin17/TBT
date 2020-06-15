@@ -1,0 +1,21 @@
+.social-login {
+    a {
+        margin-bottom: 14px;
+        i {
+            margin-right: 10px;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-fb {
+        i {
+            color: #3A5999;
+        }
+    }
+    &-tw {
+        i {
+            color: #1DA1F2;
+        }
+    }
+}

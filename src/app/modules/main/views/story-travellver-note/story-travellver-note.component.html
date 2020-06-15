@@ -1,0 +1,22 @@
+
+  <div class="pt-20 pb-15" *ngIf="travellverNote && travellverNote.list && travellverNote.list.length > 0">
+    <h3 class="title" *ngIf="travellverNote.title">{{travellverNote.title}}</h3>
+    <div class="infor-list">
+      <div class="row">
+        <div class="col-12">
+          <div class="item" *ngFor="let note of travellverNote.list|slice:0:showCount let i = index">
+            <div class="icon" *ngIf="note.icon"><i class="{{ note.icon }}"></i></div>
+            <div *ngIf="note.value" [innerHTML]="note.value">
+
+            </div>
+
+            <div class="show-more" *ngIf="i == 3 && showCount == 4 && !isDesktop">
+              <button class="show-more-btn" (click)="showCount = travellverNote.list.length">Show
+                more</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

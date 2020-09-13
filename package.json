@@ -71,7 +71,7 @@
     "ngx-spinner": "^7.2.0",
     "ngx-toastr": "^10.0.4",
     "ngx-youtube-player": "^7.1.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "rendertron-middleware": "^0.1.5",
     "rxjs": "^6.5.2",
     "source-sans-pro": "^2.45.0",
